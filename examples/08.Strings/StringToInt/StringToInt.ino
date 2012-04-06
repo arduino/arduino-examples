@@ -16,8 +16,13 @@
 String inString = "";    // string to hold input
 
 void setup() {
-  // Initialize serial communications:
+  // Open serial communications and wait for port to open:
   Serial.begin(9600);
+  // this check is only needed on the Leonardo:
+  while (!Serial) ;
+  ;
+
+  Serial.println("\n\nString toInt():");
 }
 
 void loop() {
@@ -41,7 +46,4 @@ void loop() {
     }
   }
 }
-
-
-
 

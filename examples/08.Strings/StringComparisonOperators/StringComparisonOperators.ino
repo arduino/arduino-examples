@@ -11,15 +11,15 @@
  
  This example code is in the public domain.
  */
- 
+
 String stringOne, stringTwo;
 
 void setup() {
- // Open serial communications and wait for port to open:
+  // Open serial communications and wait for port to open:
   Serial.begin(9600);
   // this check is only needed on the Leonardo:
   while (!Serial) ;
- ;
+  ;
 
   stringOne = String("this");
   stringTwo = String("that");
@@ -62,7 +62,7 @@ void loop() {
   // a numeric string compared to the number it represents:
   stringOne = "1";
   int numberOne = 1;
-  if (stringOne == numberOne) {
+  if (stringOne.toInt() == numberOne) {
     Serial.println(stringOne + " = " + numberOne);
   }
 
