@@ -21,8 +21,8 @@ void setup() {
   Serial.begin(9600);
   // this check is only needed on the Leonardo:
   while (!Serial) ;
- ;
-  
+  ;
+
   stringOne = String("stringThree = ");
   stringTwo = String("this string");
   stringThree = String ();

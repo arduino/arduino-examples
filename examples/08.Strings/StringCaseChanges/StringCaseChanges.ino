@@ -13,11 +13,11 @@
  */
 
 void setup() {
- // Open serial communications and wait for port to open:
+  // Open serial communications and wait for port to open:
   Serial.begin(9600);
   // this check is only needed on the Leonardo:
   while (!Serial) ;
- ;
+  ;
 
   Serial.println("\n\nString  case changes:");
 }
@@ -26,16 +26,16 @@ void loop() {
   // toUpperCase() changes all letters to upper case:
   String stringOne = "<html><head><body>";
   Serial.println(stringOne);
-  stringOne = (stringOne.toUpperCase());
+  stringOne.toUpperCase();
   Serial.println(stringOne);
-  
- // toLowerCase() changes all letters to lower case:  
+
+  // toLowerCase() changes all letters to lower case:  
   String stringTwo = "</BODY></HTML>";
   Serial.println(stringTwo);
-  stringTwo = stringTwo.toLowerCase();
+  stringTwo.toLowerCase();
   Serial.println(stringTwo);
-  
-  
+
+
   // do nothing while true:
   while(true);
 }
