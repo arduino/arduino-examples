@@ -1,0 +1,9 @@
+= Built-in Examples =
+
+These are the example Arduino sketches built in to the Arduino IDE.
+
+They were originally hosted at `https://github.com/arduino/Arduino/tree/master/build/shared`
+
+For more information about these examples please visit their tutorials at +
+https://www.arduino.cc/en/Tutorial/BuiltInExamples
+
