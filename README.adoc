@@ -1,5 +1,7 @@
 = Built-in Examples =
 
+image:https://github.com/arduino/arduino-examples/workflows/Compile%20Examples/badge.svg["Compile Examples Status", link="https://github.com/arduino/arduino-examples/actions?workflow=Compile+Examples"]
+
 These are the example Arduino sketches built in to the Arduino IDE.
 
 They were originally hosted at `https://github.com/arduino/Arduino/tree/master/build/shared`
