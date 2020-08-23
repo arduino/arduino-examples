@@ -59,9 +59,9 @@
 
 #if defined(ARDUINO_ARCH_AVR)
 
-#if SPI_CLOCK > (F_CPU / 128)
-#define USE_HARDWARE_SPI
-#endif
+  #if SPI_CLOCK > (F_CPU / 128)
+    #define USE_HARDWARE_SPI
+  #endif
 
 #endif
 
@@ -70,51 +70,51 @@
 // The standard pin configuration.
 #ifndef ARDUINO_HOODLOADER2
 
-#define RESET     10 // Use pin 10 to reset the target rather than SS
-#define LED_HB    9
-#define LED_ERR   8
-#define LED_PMODE 7
+  #define RESET     10 // Use pin 10 to reset the target rather than SS
+  #define LED_HB    9
+  #define LED_ERR   8
+  #define LED_PMODE 7
 
-// Uncomment following line to use the old Uno style wiring
-// (using pin 11, 12 and 13 instead of the SPI header) on Leonardo, Due...
+  // Uncomment following line to use the old Uno style wiring
+  // (using pin 11, 12 and 13 instead of the SPI header) on Leonardo, Due...
 
-// #define USE_OLD_STYLE_WIRING
+  // #define USE_OLD_STYLE_WIRING
 
-#ifdef USE_OLD_STYLE_WIRING
+  #ifdef USE_OLD_STYLE_WIRING
 
-#define PIN_MOSI	11
-#define PIN_MISO	12
-#define PIN_SCK		13
+    #define PIN_MOSI	11
+    #define PIN_MISO	12
+    #define PIN_SCK		13
 
-#endif
+  #endif
 
-// HOODLOADER2 means running sketches on the ATmega16U2 serial converter chips
-// on Uno or Mega boards. We must use pins that are broken out:
+  // HOODLOADER2 means running sketches on the ATmega16U2 serial converter chips
+  // on Uno or Mega boards. We must use pins that are broken out:
 #else
 
-#define RESET     	4
-#define LED_HB    	7
-#define LED_ERR   	6
-#define LED_PMODE 	5
+  #define RESET     	4
+  #define LED_HB    	7
+  #define LED_ERR   	6
+  #define LED_PMODE 	5
 
 #endif
 
 // By default, use hardware SPI pins:
 #ifndef PIN_MOSI
-#define PIN_MOSI 	MOSI
+  #define PIN_MOSI 	MOSI
 #endif
 
 #ifndef PIN_MISO
-#define PIN_MISO 	MISO
+  #define PIN_MISO 	MISO
 #endif
 
 #ifndef PIN_SCK
-#define PIN_SCK 	SCK
+  #define PIN_SCK 	SCK
 #endif
 
 // Force bitbanged SPI if not using the hardware SPI pins:
 #if (PIN_MISO != MISO) ||  (PIN_MOSI != MOSI) || (PIN_SCK != SCK)
-#undef USE_HARDWARE_SPI
+  #undef USE_HARDWARE_SPI
 #endif
 
 
@@ -131,9 +131,9 @@
 // To use 'Serial': #define SERIAL Serial
 
 #ifdef SERIAL_PORT_USBVIRTUAL
-#define SERIAL SERIAL_PORT_USBVIRTUAL
+  #define SERIAL SERIAL_PORT_USBVIRTUAL
 #else
-#define SERIAL Serial
+  #define SERIAL Serial
 #endif
 
 
@@ -190,13 +190,14 @@ class BitBangedSPI {
 
     void beginTransaction(SPISettings settings) {
       pulseWidth = (500000 + settings.clock - 1) / settings.clock;
-      if (pulseWidth == 0)
+      if (pulseWidth == 0) {
         pulseWidth = 1;
+      }
     }
 
     void end() {}
 
-    uint8_t transfer (uint8_t b) {
+    uint8_t transfer(uint8_t b) {
       for (unsigned int i = 0; i < 8; ++i) {
         digitalWrite(PIN_MOSI, (b & 0x80) ? HIGH : LOW);
         digitalWrite(PIN_SCK, HIGH);
@@ -260,11 +261,16 @@ int8_t hbdelta = 8;
 void heartbeat() {
   static unsigned long last_time = 0;
   unsigned long now = millis();
-  if ((now - last_time) < 40)
+  if ((now - last_time) < 40) {
     return;
+  }
   last_time = now;
-  if (hbval > 192) hbdelta = -hbdelta;
-  if (hbval < 32) hbdelta = -hbdelta;
+  if (hbval > 192) {
+    hbdelta = -hbdelta;
+  }
+  if (hbval < 32) {
+    hbdelta = -hbdelta;
+  }
   hbval += hbdelta;
   analogWrite(LED_HB, hbval);
 }
@@ -603,8 +609,12 @@ void read_page() {
     return;
   }
   SERIAL.print((char) STK_INSYNC);
-  if (memtype == 'F') result = flash_read_page(length);
-  if (memtype == 'E') result = eeprom_read_page(length);
+  if (memtype == 'F') {
+    result = flash_read_page(length);
+  }
+  if (memtype == 'E') {
+    result = eeprom_read_page(length);
+  }
   SERIAL.print(result);
 }
 
@@ -641,8 +651,7 @@ void avrisp() {
         SERIAL.print((char) STK_INSYNC);
         SERIAL.print("AVR ISP");
         SERIAL.print((char) STK_OK);
-      }
-      else {
+      } else {
         error++;
         SERIAL.print((char) STK_NOSYNC);
       }
@@ -660,8 +669,9 @@ void avrisp() {
       empty_reply();
       break;
     case 'P':
-      if (!pmode)
+      if (!pmode) {
         start_pmode();
+      }
       empty_reply();
       break;
     case 'U': // set address (word)
@@ -711,9 +721,10 @@ void avrisp() {
     // anything else we will return STK_UNKNOWN
     default:
       error++;
-      if (CRC_EOP == getch())
+      if (CRC_EOP == getch()) {
         SERIAL.print((char)STK_UNKNOWN);
-      else
+      } else {
         SERIAL.print((char)STK_NOSYNC);
+      }
   }
 }
