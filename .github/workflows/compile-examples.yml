@@ -138,3 +138,5 @@ jobs:
             ${{ env.UNIVERSAL_LIBRARIES }}
             ${{ matrix.usb-libraries }}
           sketch-paths: '${{ env.UNIVERSAL_SKETCH_PATHS }} ${{ matrix.usb-sketch-paths }} ${{ matrix.serial1-sketch-paths }} ${{ matrix.starter-kit-sketch-paths }}'
+          # This input can be removed once the repository is made public
+          github-token: ${{ secrets.GITHUB_TOKEN }}
