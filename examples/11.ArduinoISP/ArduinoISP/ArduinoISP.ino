@@ -54,10 +54,10 @@
 
 
 // Select hardware or software SPI, depending on SPI clock.
-// Currently only for AVR, for other architectures (Due, Zero,...), hardware SPI
+// Currently only for AVR and megaAVR, for other architectures (Due, Zero,...), hardware SPI
 // is probably too fast anyway.
 
-#if defined(ARDUINO_ARCH_AVR)
+#if defined(ARDUINO_ARCH_AVR) | defined(ARDUINO_ARCH_MEGAAVR)
 
   #if SPI_CLOCK > (F_CPU / 128)
     #define USE_HARDWARE_SPI
