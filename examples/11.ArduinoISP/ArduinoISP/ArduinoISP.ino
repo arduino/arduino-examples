@@ -164,19 +164,23 @@ void pulse(int pin, int times);
 
 #define SPI_MODE0 0x00
 
+#if !defined(ARDUINO_API_VERSION) // A SPISettings class is declared by ArduinoCore-API
 class SPISettings {
   public:
     // clock is in Hz
-    SPISettings(uint32_t clock, uint8_t bitOrder, uint8_t dataMode) : clock(clock) {
+    SPISettings(uint32_t clock, uint8_t bitOrder, uint8_t dataMode) : clockFreq(clock) {
       (void) bitOrder;
       (void) dataMode;
     };
 
-  private:
-    uint32_t clock;
+    uint32_t getClockFreq() const {
+      return clockFreq;
+    }
 
-    friend class BitBangedSPI;
+  private:
+    uint32_t clockFreq;
 };
+#endif  // !defined(ARDUINO_API_VERSION)
 
 class BitBangedSPI {
   public:
@@ -189,7 +193,7 @@ class BitBangedSPI {
     }
 
     void beginTransaction(SPISettings settings) {
-      pulseWidth = (500000 + settings.clock - 1) / settings.clock;
+      pulseWidth = (500000 + settings.getClockFreq() - 1) / settings.getClockFreq();
       if (pulseWidth == 0) {
         pulseWidth = 1;
       }
