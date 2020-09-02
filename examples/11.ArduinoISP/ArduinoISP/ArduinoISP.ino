@@ -233,7 +233,7 @@ void setup() {
 
 }
 
-int error = 0;
+int ISPError = 0;
 int pmode = 0;
 // address for reading and writing, set by 'U' command
 unsigned int here;
@@ -293,7 +293,7 @@ void loop(void) {
     digitalWrite(LED_PMODE, LOW);
   }
   // is there an error?
-  if (error) {
+  if (ISPError) {
     digitalWrite(LED_ERR, HIGH);
   } else {
     digitalWrite(LED_ERR, LOW);
@@ -344,7 +344,7 @@ void empty_reply() {
     SERIAL.print((char)STK_INSYNC);
     SERIAL.print((char)STK_OK);
   } else {
-    error++;
+    ISPError++;
     SERIAL.print((char)STK_NOSYNC);
   }
 }
@@ -355,7 +355,7 @@ void breply(uint8_t b) {
     SERIAL.print((char)b);
     SERIAL.print((char)STK_OK);
   } else {
-    error++;
+    ISPError++;
     SERIAL.print((char)STK_NOSYNC);
   }
 }
@@ -494,7 +494,7 @@ void write_flash(int length) {
     SERIAL.print((char) STK_INSYNC);
     SERIAL.print((char) write_flash_pages(length));
   } else {
-    error++;
+    ISPError++;
     SERIAL.print((char) STK_NOSYNC);
   }
 }
@@ -523,7 +523,7 @@ uint8_t write_eeprom(unsigned int length) {
   unsigned int start = here * 2;
   unsigned int remaining = length;
   if (length > param.eepromsize) {
-    error++;
+    ISPError++;
     return STK_FAILED;
   }
   while (remaining > EECHUNK) {
@@ -564,7 +564,7 @@ void program_page() {
       SERIAL.print((char) STK_INSYNC);
       SERIAL.print(result);
     } else {
-      error++;
+      ISPError++;
       SERIAL.print((char) STK_NOSYNC);
     }
     return;
@@ -608,7 +608,7 @@ void read_page() {
   length += getch();
   char memtype = getch();
   if (CRC_EOP != getch()) {
-    error++;
+    ISPError++;
     SERIAL.print((char) STK_NOSYNC);
     return;
   }
@@ -624,7 +624,7 @@ void read_page() {
 
 void read_signature() {
   if (CRC_EOP != getch()) {
-    error++;
+    ISPError++;
     SERIAL.print((char) STK_NOSYNC);
     return;
   }
@@ -647,7 +647,7 @@ void avrisp() {
   uint8_t ch = getch();
   switch (ch) {
     case '0': // signon
-      error = 0;
+      ISPError = 0;
       empty_reply();
       break;
     case '1':
@@ -656,7 +656,7 @@ void avrisp() {
         SERIAL.print("AVR ISP");
         SERIAL.print((char) STK_OK);
       } else {
-        error++;
+        ISPError++;
         SERIAL.print((char) STK_NOSYNC);
       }
       break;
@@ -706,7 +706,7 @@ void avrisp() {
       universal();
       break;
     case 'Q': //0x51
-      error = 0;
+      ISPError = 0;
       end_pmode();
       empty_reply();
       break;
@@ -718,13 +718,13 @@ void avrisp() {
     // expecting a command, not CRC_EOP
     // this is how we can get back in sync
     case CRC_EOP:
-      error++;
+      ISPError++;
       SERIAL.print((char) STK_NOSYNC);
       break;
 
     // anything else we will return STK_UNKNOWN
     default:
-      error++;
+      ISPError++;
       if (CRC_EOP == getch()) {
         SERIAL.print((char)STK_UNKNOWN);
       } else {
