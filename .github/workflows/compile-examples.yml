@@ -48,7 +48,11 @@ jobs:
       # Sketch paths to compile (recursive) for all boards
       UNIVERSAL_SKETCH_PATHS: >-
         "examples/01.Basics"
-        "examples/02.Digital"
+        "examples/02.Digital/BlinkWithoutDelay"
+        "examples/02.Digital/Button"
+        "examples/02.Digital/Debounce"
+        "examples/02.Digital/DigitalInputPullup"
+        "examples/02.Digital/StateChangeDetection"
         "examples/03.Analog"
         "examples/04.Communication/ASCIITable"
         "examples/04.Communication/Dimmer"
@@ -76,36 +80,46 @@ jobs:
             usb: false
             serial1: false
             starter-kit: true
+            tone: true
           # Adding this in addition to the Uno because it has 1.5 kB less available flash
           - fqbn: arduino:avr:nano
             usb: false
             serial1: false
             starter-kit: false
+            tone: true
           - fqbn: arduino:avr:leonardo
             usb: true
             serial1: true
             starter-kit: false
+            tone: true
           - fqbn: arduino:megaavr:uno2018:mode=off
             usb: false
             serial1: true
             starter-kit: false
+            tone: true
           - fqbn: arduino:samd:mkrzero
             usb: true
             serial1: true
             starter-kit: false
+            tone: true
           - fqbn: arduino:mbed:nano33ble
             usb: false
             serial1: true
             starter-kit: false
+            tone: true
           # Change this to arduino:mbed:envie_m7 once there is a production release of the Arduino Mbed OS Boards platform
           - fqbn: arduino-beta:mbed:envie_m7
             usb: false
             serial1: true
             starter-kit: false
+            tone: true
           - fqbn: arduino:sam:arduino_due_x
             usb: true
             serial1: true
             starter-kit: false
+            # Bug report: https://github.com/arduino/ArduinoCore-sam/issues/24
+            # Change the value to true once it is fixed.
+            tone: false
 
         # Make board type-specific customizations to the matrix jobs
         include:
@@ -139,6 +153,16 @@ jobs:
           - board:
               starter-kit: false
             starter-kit-sketch-paths: ""
+          - board:
+              tone: true
+            tone-sketch-paths: >-
+              "examples/02.Digital/toneKeyboard"
+              "examples/02.Digital/toneMelody"
+              "examples/02.Digital/toneMultiple"
+              "examples/02.Digital/tonePitchFollower"
+          - board:
+              tone: false
+            tone-sketch-paths: ""
 
     steps:
       - name: Checkout
@@ -151,6 +175,11 @@ jobs:
           libraries: |
             ${{ env.UNIVERSAL_LIBRARIES }}
             ${{ matrix.usb-libraries }}
-          sketch-paths: '${{ env.UNIVERSAL_SKETCH_PATHS }} ${{ matrix.usb-sketch-paths }} ${{ matrix.serial1-sketch-paths }} ${{ matrix.starter-kit-sketch-paths }}'
+          sketch-paths: >-
+            ${{ env.UNIVERSAL_SKETCH_PATHS }}
+            ${{ matrix.usb-sketch-paths }}
+            ${{ matrix.serial1-sketch-paths }}
+            ${{ matrix.starter-kit-sketch-paths }}
+            ${{ matrix.tone-sketch-paths }}
           # This input can be removed once the repository is made public
           github-token: ${{ secrets.GITHUB_TOKEN }}
