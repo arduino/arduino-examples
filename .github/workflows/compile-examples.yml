@@ -1,3 +1,17 @@
+# This workflow compiles the example sketches for one of each distinct type of active official Arduino board.
+#
+# This requires the use of external components (e.g., libraries, boards platform, toolchain), so it is possible for
+# compilations to be broken by bugs in the external components, even though the example itself is perfect.
+#
+# If this happens, the procedure is:
+# - Report the bug to the appropriate issue tracker.
+# - Adjust this workflow to remove the compilation for the specific board/sketch combination that is failing due to the
+#   bug.
+# - Add a comment to the workflow providing the URL of the issue report.
+# - Once the bug is fixed and the fix released, revert the commit that removed the failing compilation.
+# - If the issue is closed as "wontfix", add a comment to the affected examples documenting the incompatibility and open
+#   an issue requesting that the associated tutorials be updated.
+
 name: Compile Examples
 
 on:
