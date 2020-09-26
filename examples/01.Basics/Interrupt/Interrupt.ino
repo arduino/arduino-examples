@@ -23,12 +23,12 @@
 const byte interruptPin = 2;
 volatile byte state = LOW;
 
-void blink () {
+void blink() {
   state = !state;  // toggle the cached state
 }
 
 // the setup function runs once when you press reset or power the board
-void setup () {
+void setup() {
   // initialize digital pin LED_BUILTIN as an output.
   pinMode(LED_BUILTIN, OUTPUT);
   // initialize digital pin as input with pull-up resistor (i.e. always HIGH, unless deliberately pulled LOW)
@@ -38,7 +38,7 @@ void setup () {
 }
 
 // the loop function runs over and over again forever
-void loop () {
+void loop() {
   // update the LED to reflect the cached state updated with interrupts
   digitalWrite(LED_BUILTIN, state);
 }
