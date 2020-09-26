@@ -239,7 +239,7 @@ static BitBangedSPI SPI;
 
 #ifdef CLOCK_GEN_ENABLED
 
-// ouput a 4MHz clock on pin 3 (Uno) using fast PWM
+// output a 4MHz clock on pin 3 (Uno) using fast PWM
 void setup_clock_gen() {
   pinMode(3, OUTPUT);
   TCCR2A = 0x23;
