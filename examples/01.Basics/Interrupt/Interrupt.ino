@@ -5,10 +5,10 @@
   This sample uses an interrupt service routine (ISR) named `blink` to toggle
   a global state variable and then uses the built-in LED to display the value
   of the cached state to the user. The work of updating the cached state happens
-  asychronously in the interrupt service routine.
+  asynchronously in the interrupt service routine.
 
   This sample can easily be modified from behaving as a button into behaving as
-  a switch, by changing the interrupt mode from CHANGE to LOW. Futhermore, this
+  a switch, by changing the interrupt mode from CHANGE to LOW. Furthermore, this
   example can be modified to update the built-in LED from inside in the ISR,
   which would allow the loop function to be empty yet still allow actions and
   reactions to occur.
