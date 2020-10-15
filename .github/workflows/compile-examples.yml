@@ -114,8 +114,7 @@ jobs:
             starter-kit: false
             tone: true
             pulsein: true
-          # Change this to arduino:mbed:envie_m7 once there is a production release of the Arduino Mbed OS Boards platform
-          - fqbn: arduino-beta:mbed:envie_m7
+          - fqbn: arduino:mbed:envie_m7
             usb: false
             serial1: true
             starter-kit: false
