@@ -164,7 +164,7 @@ void pulse(int pin, int times);
 
 #define SPI_MODE0 0x00
 
-#if !defined(ARDUINO_API_VERSION) // A SPISettings class is declared by ArduinoCore-API
+#if !defined(ARDUINO_API_VERSION) || ARDUINO_API_VERSION != 10001 // A SPISettings class is declared by ArduinoCore-API 1.0.1
 class SPISettings {
   public:
     // clock is in Hz
