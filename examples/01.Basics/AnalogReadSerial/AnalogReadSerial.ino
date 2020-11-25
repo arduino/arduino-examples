@@ -7,7 +7,7 @@
 
   This example code is in the public domain.
 
-  http://www.arduino.cc/en/Tutorial/AnalogReadSerial
+  https://www.arduino.cc/en/Tutorial/BuiltInExamples/AnalogReadSerial
 */
 
 // the setup routine runs once when you press reset:
