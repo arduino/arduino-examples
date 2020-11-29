@@ -12,7 +12,7 @@
 
   The circuit:
   - analog sensor (potentiometer will do) attached to analog input 0
-  - LED attached from digital pin 9 to ground
+  - LED attached from digital pin 9 to ground through 220 ohm resistor
 
   created 29 Oct 2008
   by David A Mellis

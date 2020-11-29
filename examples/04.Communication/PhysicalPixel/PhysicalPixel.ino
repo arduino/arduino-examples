@@ -9,7 +9,7 @@
   Processing (see code below), Flash (via a serial-net proxy), PD, or Max/MSP.
 
   The circuit:
-  - LED connected from digital pin 13 to ground
+  - LED connected from digital pin 13 to ground through 220 ohm resistor
 
   created 2006
   by David A. Mellis

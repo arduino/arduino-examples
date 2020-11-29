@@ -10,7 +10,7 @@
   - potentiometer
     Center pin of the potentiometer goes to analog pin 0.
     Side pins of the potentiometer go to +5V and ground.
-  - LED connected from digital pin 13 to ground
+  - LED connected from digital pin 13 to ground through 220 ohm resistor
 
   - Note: On most Arduino boards, there is already an LED on the board connected
     to pin 13, so you don't need any extra components for this example.
