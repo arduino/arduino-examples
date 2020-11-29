@@ -6,9 +6,9 @@
   It parses them into ints, and uses those to fade an RGB LED.
 
   Circuit: Common-Cathode RGB LED wired like so:
-  - red anode: digital pin 3
-  - green anode: digital pin 5
-  - blue anode: digital pin 6
+  - red anode: digital pin 3 through 220 ohm resistor
+  - green anode: digital pin 5 through 220 ohm resistor
+  - blue anode: digital pin 6 through 220 ohm resistor
   - cathode: GND
 
   created 13 Apr 2012

@@ -12,7 +12,7 @@
     one side pin (either one) to ground
     the other side pin to +5V
   - LED
-    anode (long leg) attached to digital output 13
+    anode (long leg) attached to digital output 13 through 220 ohm resistor
     cathode (short leg) attached to ground
 
   - Note: because most Arduinos have a built-in LED attached to pin 13 on the

@@ -7,7 +7,7 @@
   set the brightness of the LED.
 
   The circuit:
-  - LED attached from digital pin 9 to ground.
+  - LED attached from digital pin 9 to ground through 220 ohm resistor.
   - Serial connection to Processing, Max/MSP, or another serial application
 
   created 2006

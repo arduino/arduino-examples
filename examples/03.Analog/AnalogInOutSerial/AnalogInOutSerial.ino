@@ -9,7 +9,7 @@
   - potentiometer connected to analog pin 0.
     Center pin of the potentiometer goes to the analog pin.
     side pins of the potentiometer go to +5V and ground
-  - LED connected from digital pin 9 to ground
+  - LED connected from digital pin 9 to ground through 220 ohm resistor
 
   created 29 Dec. 2008
   modified 9 Apr 2012

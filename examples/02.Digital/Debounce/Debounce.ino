@@ -6,7 +6,7 @@
   minimum delay between toggles to debounce the circuit (i.e. to ignore noise).
 
   The circuit:
-  - LED attached from pin 13 to ground
+  - LED attached from pin 13 to ground through 220 ohm resistor
   - pushbutton attached from pin 2 to +5V
   - 10 kilohm resistor attached from pin 2 to ground
 
