@@ -18,7 +18,7 @@
 
   This example code is in the public domain.
 
-  http://www.arduino.cc/en/Tutorial/PhysicalPixel
+  https://www.arduino.cc/en/Tutorial/BuiltInExamples/PhysicalPixel
 */
 
 const int ledPin = 13; // the pin that the LED is attached to

@@ -18,7 +18,7 @@
 
   This example code is in the public domain.
 
-  http://www.arduino.cc/en/Tutorial/Ping
+  https://www.arduino.cc/en/Tutorial/BuiltInExamples/Ping
 */
 
 // this constant won't change. It's the pin number of the sensor's output:
@@ -67,7 +67,7 @@ long microsecondsToInches(long microseconds) {
   // microseconds per inch (i.e. sound travels at 1130 feet per second).
   // This gives the distance travelled by the ping, outbound and return,
   // so we divide by 2 to get the distance of the obstacle.
-  // See: http://www.parallax.com/dl/docs/prod/acc/28015-PING-v1.3.pdf
+  // See: https://www.parallax.com/package/ping-ultrasonic-distance-sensor-downloads/
   return microseconds / 74 / 2;
 }
 

@@ -22,7 +22,7 @@
 
   This example is in the public domain.
 
-  http://www.arduino.cc/en/Tutorial/KeyboardLogout
+  https://www.arduino.cc/en/Tutorial/BuiltInExamples/KeyboardLogout
 */
 
 #define OSX 0

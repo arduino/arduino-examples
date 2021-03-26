@@ -9,7 +9,7 @@
 
   This example code is in the public domain.
 
-  http://www.arduino.cc/en/Tutorial/StringLengthTrim
+  https://www.arduino.cc/en/Tutorial/BuiltInExamples/StringLengthTrim
 */
 
 String txtMsg = "";                         // a string for incoming text

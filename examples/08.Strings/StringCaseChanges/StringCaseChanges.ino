@@ -9,7 +9,7 @@
 
   This example code is in the public domain.
 
-  http://www.arduino.cc/en/Tutorial/StringCaseChanges
+  https://www.arduino.cc/en/Tutorial/BuiltInExamples/StringCaseChanges
 */
 
 void setup() {

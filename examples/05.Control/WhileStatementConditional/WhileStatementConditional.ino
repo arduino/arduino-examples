@@ -24,7 +24,7 @@
 
   This example code is in the public domain.
 
-  http://www.arduino.cc/en/Tutorial/WhileLoop
+  https://www.arduino.cc/en/Tutorial/BuiltInExamples/WhileStatementConditional
 */
 
 

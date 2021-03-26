@@ -21,7 +21,7 @@
 
   This example code is in the public domain.
 
-  http://www.arduino.cc/en/Tutorial/IfStatement
+  https://www.arduino.cc/en/Tutorial/BuiltInExamples/ifStatementConditional
 */
 
 // These constants won't change:

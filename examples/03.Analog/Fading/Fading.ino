@@ -13,7 +13,7 @@
 
   This example code is in the public domain.
 
-  http://www.arduino.cc/en/Tutorial/Fading
+  https://www.arduino.cc/en/Tutorial/BuiltInExamples/Fading
 */
 
 int ledPin = 9;    // LED connected to digital pin 9

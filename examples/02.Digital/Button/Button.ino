@@ -19,7 +19,7 @@
 
   This example code is in the public domain.
 
-  http://www.arduino.cc/en/Tutorial/Button
+  https://www.arduino.cc/en/Tutorial/BuiltInExamples/Button
 */
 
 // constants won't change. They're used here to set pin numbers:

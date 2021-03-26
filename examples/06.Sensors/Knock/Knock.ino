@@ -18,7 +18,7 @@
 
   This example code is in the public domain.
 
-  http://www.arduino.cc/en/Tutorial/Knock
+  https://www.arduino.cc/en/Tutorial/BuiltInExamples/Knock
 */
 
 

@@ -21,7 +21,7 @@
 
   This example code is in the public domain.
 
-  http://www.arduino.cc/en/Tutorial/ButtonStateChange
+  https://www.arduino.cc/en/Tutorial/BuiltInExamples/StateChangeDetection
 */
 
 // this constant won't change:

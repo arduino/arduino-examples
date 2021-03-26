@@ -10,7 +10,7 @@
 
   This example code is in the public domain.
 
-  http://www.arduino.cc/en/Tutorial/StringAdditionOperator
+  https://www.arduino.cc/en/Tutorial/BuiltInExamples/StringAdditionOperator
 */
 
 // declare three Strings:
