@@ -15,7 +15,7 @@
 
   This example code is in the public domain.
 
-  http://www.arduino.cc/en/Tutorial/SerialEvent
+  https://www.arduino.cc/en/Tutorial/BuiltInExamples/SerialEvent
 */
 
 String inputString = "";         // a String to hold incoming data

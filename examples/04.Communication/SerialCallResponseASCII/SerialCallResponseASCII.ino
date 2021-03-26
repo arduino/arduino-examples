@@ -19,7 +19,7 @@
 
   This example code is in the public domain.
 
-  http://www.arduino.cc/en/Tutorial/SerialCallResponseASCII
+  https://www.arduino.cc/en/Tutorial/BuiltInExamples/SerialCallResponseASCII
 */
 
 int firstSensor = 0;    // first analog sensor

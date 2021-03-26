@@ -8,13 +8,13 @@
   - 10 kilohm potentiometer
 
   Software required:
-  - Processing (3.0 or newer) http://processing.org
+  - Processing (3.0 or newer) https://processing.org/
   - Active Internet connection
 
   created 18 Sep 2012
   by Scott Fitzgerald
 
-  http://www.arduino.cc/starterKit
+  https://store.arduino.cc/genuino-starter-kit
 
   This example code is part of the public domain.
 */

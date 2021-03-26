@@ -17,7 +17,7 @@
 
   This example code is in the public domain.
 
-  http://www.arduino.cc/en/Tutorial/KeyboardMessage
+  https://www.arduino.cc/en/Tutorial/BuiltInExamples/KeyboardMessage
 */
 
 #include "Keyboard.h"

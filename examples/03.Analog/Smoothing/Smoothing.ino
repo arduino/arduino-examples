@@ -15,7 +15,7 @@
 
   This example code is in the public domain.
 
-  http://www.arduino.cc/en/Tutorial/Smoothing
+  https://www.arduino.cc/en/Tutorial/BuiltInExamples/Smoothing
 */
 
 // Define the number of samples to keep track of. The higher the number, the

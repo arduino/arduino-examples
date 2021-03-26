@@ -4,7 +4,7 @@
   Reads an Analog Devices ADXL3xx accelerometer and communicates the
   acceleration to the computer. The pins used are designed to be easily
   compatible with the breakout boards from SparkFun, available from:
-  http://www.sparkfun.com/commerce/categories.php?c=80
+  https://www.sparkfun.com/categories/80
 
   The circuit:
   - analog 0: accelerometer self test
@@ -21,7 +21,7 @@
 
   This example code is in the public domain.
 
-  http://www.arduino.cc/en/Tutorial/ADXL3xx
+  https://www.arduino.cc/en/Tutorial/BuiltInExamples/ADXL3xx
 */
 
 // these constants describe the pins. They won't change:

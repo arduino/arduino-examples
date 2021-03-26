@@ -9,7 +9,7 @@
 
   This example code is in the public domain.
 
-  http://www.arduino.cc/en/Tutorial/StringAppendOperator
+  https://www.arduino.cc/en/Tutorial/BuiltInExamples/StringAppendOperator
 */
 
 String stringOne, stringTwo;

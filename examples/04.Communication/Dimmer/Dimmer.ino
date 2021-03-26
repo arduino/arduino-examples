@@ -17,7 +17,7 @@
 
   This example code is in the public domain.
 
-  http://www.arduino.cc/en/Tutorial/Dimmer
+  https://www.arduino.cc/en/Tutorial/BuiltInExamples/Dimmer
 */
 
 const int ledPin = 9;      // the pin that the LED is attached to
