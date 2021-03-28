@@ -20,6 +20,8 @@
 
   created 23 May 2016
   by Erik Nyquist
+
+  https://www.arduino.cc/en/Tutorial/BuiltInExamples/SerialPassthrough
 */
 
 void setup() {
