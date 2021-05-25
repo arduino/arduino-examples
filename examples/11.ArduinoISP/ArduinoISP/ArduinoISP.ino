@@ -33,7 +33,7 @@
 // Put an LED (with resistor) on the following pins:
 // 9: Heartbeat   - shows the programmer is running
 // 8: Error       - Lights up if something goes wrong (use red if that makes sense)
-// 7: Programming - In communication with the slave
+// 7: Programming - In communication with the target
 //
 
 #include "Arduino.h"
