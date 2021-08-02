@@ -132,9 +132,7 @@ jobs:
             serial1: true
             starter-kit: false
             tone: true
-            # Bug report: https://github.com/arduino/ArduinoCore-mbed/issues/48
-            # Change the value to true once it is fixed.
-            pulsein: false
+            pulsein: true
           - fqbn: arduino:sam:arduino_due_x
             usb: true
             serial1: true
