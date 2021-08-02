@@ -58,30 +58,30 @@ jobs:
         - name: CapacitiveSensor
 
       # Sketch paths to compile (recursive) for all boards
-      UNIVERSAL_SKETCH_PATHS: >-
-        "examples/01.Basics"
-        "examples/02.Digital/BlinkWithoutDelay"
-        "examples/02.Digital/Button"
-        "examples/02.Digital/Debounce"
-        "examples/02.Digital/DigitalInputPullup"
-        "examples/02.Digital/StateChangeDetection"
-        "examples/03.Analog"
-        "examples/04.Communication/ASCIITable"
-        "examples/04.Communication/Dimmer"
-        "examples/04.Communication/Graph"
-        "examples/04.Communication/Midi"
-        "examples/04.Communication/PhysicalPixel"
-        "examples/04.Communication/ReadASCIIString"
-        "examples/04.Communication/SerialCallResponse"
-        "examples/04.Communication/SerialCallResponseASCII"
-        "examples/04.Communication/SerialEvent"
-        "examples/04.Communication/VirtualColorMixer"
-        "examples/05.Control"
-        "examples/06.Sensors/ADXL3xx"
-        "examples/06.Sensors/Knock"
-        "examples/07.Display"
-        "examples/08.Strings"
-        "examples/11.ArduinoISP"
+      UNIVERSAL_SKETCH_PATHS: |
+        - examples/01.Basics
+        - examples/02.Digital/BlinkWithoutDelay
+        - examples/02.Digital/Button
+        - examples/02.Digital/Debounce
+        - examples/02.Digital/DigitalInputPullup
+        - examples/02.Digital/StateChangeDetection
+        - examples/03.Analog
+        - examples/04.Communication/ASCIITable
+        - examples/04.Communication/Dimmer
+        - examples/04.Communication/Graph
+        - examples/04.Communication/Midi
+        - examples/04.Communication/PhysicalPixel
+        - examples/04.Communication/ReadASCIIString
+        - examples/04.Communication/SerialCallResponse
+        - examples/04.Communication/SerialCallResponseASCII
+        - examples/04.Communication/SerialEvent
+        - examples/04.Communication/VirtualColorMixer
+        - examples/05.Control
+        - examples/06.Sensors/ADXL3xx
+        - examples/06.Sensors/Knock
+        - examples/07.Display
+        - examples/08.Strings
+        - examples/11.ArduinoISP
 
     strategy:
       fail-fast: false
@@ -153,8 +153,8 @@ jobs:
               - name: Keyboard
               - name: Mouse
             # Compile these sketches in addition to the ones defined by env.UNIVERSAL_SKETCH_PATHS
-            usb-sketch-paths: >-
-              "examples/09.USB"
+            usb-sketch-paths: |
+              - examples/09.USB
           - board:
               usb: false
             usb-libraries: ""
@@ -162,34 +162,34 @@ jobs:
           - board:
               # Boards with a Serial1 port
               serial1: true
-            serial1-sketch-paths: >-
-              "examples/04.Communication/MultiSerial"
-              "examples/04.Communication/SerialPassthrough"
+            serial1-sketch-paths: |
+              - examples/04.Communication/MultiSerial
+              - examples/04.Communication/SerialPassthrough
           - board:
               serial1: false
             serial1-sketch-paths: ""
           - board:
               starter-kit: true
-            starter-kit-sketch-paths: >-
-              "examples/10.StarterKit_BasicKit"
+            starter-kit-sketch-paths: |
+              - examples/10.StarterKit_BasicKit
           - board:
               starter-kit: false
             starter-kit-sketch-paths: ""
           - board:
               tone: true
-            tone-sketch-paths: >-
-              "examples/02.Digital/toneKeyboard"
-              "examples/02.Digital/toneMelody"
-              "examples/02.Digital/toneMultiple"
-              "examples/02.Digital/tonePitchFollower"
+            tone-sketch-paths: |
+              - examples/02.Digital/toneKeyboard
+              - examples/02.Digital/toneMelody
+              - examples/02.Digital/toneMultiple
+              - examples/02.Digital/tonePitchFollower
           - board:
               tone: false
             tone-sketch-paths: ""
           - board:
               pulsein: true
-            pulsein-sketch-paths: >-
-              "examples/06.Sensors/Memsic2125"
-              "examples/06.Sensors/Ping"
+            pulsein-sketch-paths: |
+              - examples/06.Sensors/Memsic2125
+              - examples/06.Sensors/Ping
           - board:
               pulsein: false
             pulsein-sketch-paths: ""
@@ -205,7 +205,7 @@ jobs:
           libraries: |
             ${{ env.UNIVERSAL_LIBRARIES }}
             ${{ matrix.usb-libraries }}
-          sketch-paths: >-
+          sketch-paths: |
             ${{ env.UNIVERSAL_SKETCH_PATHS }}
             ${{ matrix.usb-sketch-paths }}
             ${{ matrix.serial1-sketch-paths }}
