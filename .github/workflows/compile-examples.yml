@@ -120,6 +120,11 @@ jobs:
             serial1: true
             starter-kit: false
             tone: true
+          - fqbn: arduino:mbed_nano:nanorp2040connect
+            usb: false
+            serial1: true
+            starter-kit: false
+            tone: true
           - fqbn: arduino:mbed_portenta:envie_m7
             usb: false
             serial1: true
