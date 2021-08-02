@@ -16,13 +16,25 @@ name: Compile Examples
 
 on:
   pull_request:
-    paths:
-      - ".github/workflows/compile-examples.yml"
-      - "examples/**"
+    paths-ignore:
+      - "**"
+      - "!.github/workflows/compile-examples.ya?ml"
+      - "!examples/**"
+      - "**.adoc"
+      - "**.jpg"
+      - "**.md"
+      - "**.png"
+      - "**.txt"
   push:
-    paths:
-      - ".github/workflows/compile-examples.yml"
-      - "examples/**"
+    paths-ignore:
+      - "**"
+      - "!.github/workflows/compile-examples.ya?ml"
+      - "!examples/**"
+      - "**.adoc"
+      - "**.jpg"
+      - "**.md"
+      - "**.png"
+      - "**.txt"
   # Scheduled trigger checks for breakage caused by changes to external resources (libraries, platforms)
   schedule:
     # run every Tuesday at 3 AM UTC
