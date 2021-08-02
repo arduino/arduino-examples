@@ -78,8 +78,7 @@ jobs:
         - examples/04.Communication/SerialEvent
         - examples/04.Communication/VirtualColorMixer
         - examples/05.Control
-        - examples/06.Sensors/ADXL3xx
-        - examples/06.Sensors/Knock
+        - examples/06.Sensors
         - examples/07.Display
         - examples/08.Strings
         - examples/11.ArduinoISP
@@ -95,44 +94,37 @@ jobs:
             serial1: false
             starter-kit: true
             tone: true
-            pulsein: true
           # Adding this in addition to the Uno because it has 1.5 kB less available flash
           - fqbn: arduino:avr:nano
             usb: false
             serial1: false
             starter-kit: false
             tone: true
-            pulsein: true
           - fqbn: arduino:avr:leonardo
             usb: true
             serial1: true
             starter-kit: false
             tone: true
-            pulsein: true
           - fqbn: arduino:megaavr:uno2018:mode=off
             usb: false
             serial1: true
             starter-kit: false
             tone: true
-            pulsein: true
           - fqbn: arduino:samd:mkrzero
             usb: true
             serial1: true
             starter-kit: false
             tone: true
-            pulsein: true
           - fqbn: arduino:mbed_nano:nano33ble
             usb: false
             serial1: true
             starter-kit: false
             tone: true
-            pulsein: true
           - fqbn: arduino:mbed_portenta:envie_m7
             usb: false
             serial1: true
             starter-kit: false
             tone: true
-            pulsein: true
           - fqbn: arduino:sam:arduino_due_x
             usb: true
             serial1: true
@@ -140,7 +132,6 @@ jobs:
             # Bug report: https://github.com/arduino/ArduinoCore-sam/issues/24
             # Change the value to true once it is fixed.
             tone: false
-            pulsein: true
 
         # Make board type-specific customizations to the matrix jobs
         include:
@@ -184,14 +175,6 @@ jobs:
           - board:
               tone: false
             tone-sketch-paths: ""
-          - board:
-              pulsein: true
-            pulsein-sketch-paths: |
-              - examples/06.Sensors/Memsic2125
-              - examples/06.Sensors/Ping
-          - board:
-              pulsein: false
-            pulsein-sketch-paths: ""
 
     steps:
       - name: Checkout
@@ -210,4 +193,3 @@ jobs:
             ${{ matrix.serial1-sketch-paths }}
             ${{ matrix.starter-kit-sketch-paths }}
             ${{ matrix.tone-sketch-paths }}
-            ${{ matrix.pulsein-sketch-paths }}
