@@ -120,13 +120,13 @@ jobs:
             starter-kit: false
             tone: true
             pulsein: true
-          - fqbn: arduino:mbed:nano33ble
+          - fqbn: arduino:mbed_nano:nano33ble
             usb: false
             serial1: true
             starter-kit: false
             tone: true
             pulsein: true
-          - fqbn: arduino:mbed:envie_m7
+          - fqbn: arduino:mbed_portenta:envie_m7
             usb: false
             serial1: true
             starter-kit: false
