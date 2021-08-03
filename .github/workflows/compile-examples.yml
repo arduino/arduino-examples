@@ -80,7 +80,19 @@ jobs:
         - examples/05.Control
         - examples/06.Sensors
         - examples/07.Display
-        - examples/08.Strings
+        - examples/08.Strings/CharacterAnalysis
+        - examples/08.Strings/StringAdditionOperator
+        - examples/08.Strings/StringAppendOperator
+        - examples/08.Strings/StringCaseChanges
+        - examples/08.Strings/StringCharacters
+        - examples/08.Strings/StringConstructors
+        - examples/08.Strings/StringIndexOf
+        - examples/08.Strings/StringLength
+        - examples/08.Strings/StringLengthTrim
+        - examples/08.Strings/StringReplace
+        - examples/08.Strings/StringStartsWithEndsWith
+        - examples/08.Strings/StringSubstring
+        - examples/08.Strings/StringToInt
         - examples/11.ArduinoISP
 
     strategy:
@@ -94,42 +106,51 @@ jobs:
             serial1: false
             starter-kit: true
             tone: true
+            a5: true
           # Adding this in addition to the Uno because it has 1.5 kB less available flash
           - fqbn: arduino:avr:nano
             usb: false
             serial1: false
             starter-kit: false
             tone: true
+            a5: true
           - fqbn: arduino:avr:leonardo
             usb: true
             serial1: true
             starter-kit: false
             tone: true
+            a5: true
           - fqbn: arduino:megaavr:uno2018:mode=off
             usb: false
             serial1: true
             starter-kit: false
             tone: true
+            a5: true
           - fqbn: arduino:samd:mkrzero
             usb: true
             serial1: true
             starter-kit: false
             tone: true
+            a5: true
           - fqbn: arduino:mbed_nano:nano33ble
             usb: false
             serial1: true
             starter-kit: false
             tone: true
+            a5: true
           - fqbn: arduino:mbed_nano:nanorp2040connect
             usb: false
             serial1: true
             starter-kit: false
             tone: true
+            # WiFiNINA library is required to use pins A4-A7.
+            a5: false
           - fqbn: arduino:mbed_portenta:envie_m7
             usb: false
             serial1: true
             starter-kit: false
             tone: true
+            a5: true
           - fqbn: arduino:sam:arduino_due_x
             usb: true
             serial1: true
@@ -137,6 +158,7 @@ jobs:
             # Bug report: https://github.com/arduino/ArduinoCore-sam/issues/24
             # Change the value to true once it is fixed.
             tone: false
+            a5: true
 
         # Make board type-specific customizations to the matrix jobs
         include:
@@ -179,6 +201,13 @@ jobs:
               - examples/02.Digital/tonePitchFollower
           - board:
               tone: false
+            tone-sketch-paths: ""
+          - board:
+              a5: true
+            a5-sketch-paths: |
+              - examples/08.Strings/StringComparisonOperators
+          - board:
+              a5: false
             tone-sketch-paths: ""
 
     steps:
