@@ -24,7 +24,7 @@ jobs:
 
       # See: http://astyle.sourceforge.net/
       - name: Download Artistic Style
-        uses: carlosperate/download-file-action@v1.0.3
+        uses: carlosperate/download-file-action@v1.1.1
         with:
           file-url: https://iweb.dl.sourceforge.net/project/astyle/astyle/astyle%20${{ env.ASTYLE_VERSION }}/astyle_${{ env.ASTYLE_VERSION }}_linux.tar.gz
           location: ${{ runner.temp }}/astyle
