@@ -1,4 +1,8 @@
-# you need to have astyle installed before running this
+if ! which astyle &>/dev/null; then
+  echo "astyle not found or not in PATH. Please install: https://astyle.sourceforge.net/install.html"
+  exit 1
+fi
+
 find \
   examples \
   \( \
