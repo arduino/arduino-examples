@@ -1,5 +1,5 @@
-if ! which astyle &>/dev/null; then
-  echo "astyle not found or not in PATH. Please install: https://astyle.sourceforge.net/install.html"
+if ! which clang-format &>/dev/null; then
+  echo "clang-format not found or not in PATH. Please install: https://github.com/arduino/clang-static-binaries/releases"
   exit 1
 fi
 
@@ -15,6 +15,8 @@ find \
   \) \
   -type f \
   -exec \
-    astyle \
-      --options=examples_formatter.conf \
+    clang-format \
+      --assume-filename=foo.cpp \
+      -i \
+      --style=file \
       {} \;

@@ -21,13 +21,13 @@
 // named constant for the switch pin
 const int switchPin = 8;
 
-unsigned long previousTime = 0; // store the last time an LED was updated
-int switchState = 0; // the current switch state
-int prevSwitchState = 0; // the previous switch state
-int led = 2; // a variable to refer to the LEDs
+unsigned long previousTime = 0;  // store the last time an LED was updated
+int switchState = 0;             // the current switch state
+int prevSwitchState = 0;         // the previous switch state
+int led = 2;                     // a variable to refer to the LEDs
 
 // 600000 = 10 minutes in milliseconds
-long interval = 600000; // interval at which to light the next LED
+long interval = 600000;  // interval at which to light the next LED
 
 void setup() {
   // set the LED pins as outputs

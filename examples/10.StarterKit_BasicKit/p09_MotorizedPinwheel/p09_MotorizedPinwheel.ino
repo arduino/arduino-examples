@@ -21,8 +21,8 @@
 */
 
 // named constants for the switch and motor pins
-const int switchPin = 2; // the number of the switch pin
-const int motorPin =  9; // the number of the motor pin
+const int switchPin = 2;  // the number of the switch pin
+const int motorPin = 9;   // the number of the motor pin
 
 int switchState = 0;  // variable for reading the switch's status
 

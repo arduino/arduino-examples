@@ -19,7 +19,7 @@
 
 #include "pitches.h"
 
-const int threshold = 10;    // minimum reading of the sensors that generates a note
+const int threshold = 10;  // minimum reading of the sensors that generates a note
 
 // notes to play, corresponding to the 3 sensors:
 int notes[] = {
@@ -27,7 +27,6 @@ int notes[] = {
 };
 
 void setup() {
-
 }
 
 void loop() {

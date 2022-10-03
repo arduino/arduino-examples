@@ -4,13 +4,13 @@ on:
   pull_request:
     paths:
       - ".github/workflows/code-formatting-check.yml"
-      - "examples_formatter.conf"
+      - ".clang-format"
       - "examples_formatter.sh"
       - "examples/**"
   push:
     paths:
       - ".github/workflows/code-formatting-check.yml"
-      - "examples_formatter.conf"
+      - ".clang-format"
       - "examples_formatter.sh"
       - "examples/**"
 
@@ -19,31 +19,34 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      # See: https://sourceforge.net/projects/astyle/files/astyle/
-      ASTYLE_VERSION: 3.1
+      # See: https://github.com/arduino/arduino-ide/blob/main/arduino-ide-extension/package.json
+      CLANG_FORMAT_VERSION: 14.0.0
 
     steps:
+      - name: Set environment variables
+        run: |
+          # See: https://docs.github.com/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable
+          echo "CLANG_FORMAT_INSTALL_PATH=${{ runner.temp }}/clang-format" >> "$GITHUB_ENV"
+
       - name: Checkout
         uses: actions/checkout@v3
 
-      # See: http://astyle.sourceforge.net/
-      - name: Download Artistic Style
-        uses: carlosperate/download-file-action@v1
+      - name: Download ClangFormat
+        id: download
+        uses: MrOctopus/download-asset-action@1.0
         with:
-          file-url: https://cfhcable.dl.sourceforge.net/project/astyle/astyle/astyle%20${{ env.ASTYLE_VERSION }}/astyle_${{ env.ASTYLE_VERSION }}_linux.tar.gz
-          location: ${{ runner.temp }}/astyle
+          repository: arduino/clang-static-binaries
+          tag: ${{ env.CLANG_FORMAT_VERSION }}
+          asset: clang-format_${{ env.CLANG_FORMAT_VERSION }}_Linux_64bit.tar.bz2
+          target: ${{ env.CLANG_FORMAT_INSTALL_PATH }}
 
-      # See: http://astyle.sourceforge.net/install.html#_GCC_Makefile
-      - name: Build Artistic Style
+      - name: Install ClangFormat
         run: |
-          # Build Artistic Style
-          cd "${{ runner.temp }}/astyle"
-          tar --extract --file="astyle_${{ env.ASTYLE_VERSION }}_linux.tar.gz"
-          cd "astyle/build/gcc"
-          make
+          cd "${{ env.CLANG_FORMAT_INSTALL_PATH }}"
+          tar --extract --file="${{ steps.download.outputs.name }}"
           # Add installation to PATH:
           # See: https://docs.github.com/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path
-          echo "${{ runner.temp }}/astyle/astyle/build/gcc/bin" >> "$GITHUB_PATH"
+          echo "${{ env.CLANG_FORMAT_INSTALL_PATH }}/clang_Linux_64bit" >> "$GITHUB_PATH"
 
       - name: Format examples
         run: ./examples_formatter.sh

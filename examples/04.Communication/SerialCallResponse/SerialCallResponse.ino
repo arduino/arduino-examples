@@ -21,16 +21,16 @@
   https://www.arduino.cc/en/Tutorial/BuiltInExamples/SerialCallResponse
 */
 
-int firstSensor = 0;    // first analog sensor
-int secondSensor = 0;   // second analog sensor
-int thirdSensor = 0;    // digital sensor
-int inByte = 0;         // incoming serial byte
+int firstSensor = 0;   // first analog sensor
+int secondSensor = 0;  // second analog sensor
+int thirdSensor = 0;   // digital sensor
+int inByte = 0;        // incoming serial byte
 
 void setup() {
   // start serial port at 9600 bps:
   Serial.begin(9600);
   while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB port only
+    ;  // wait for serial port to connect. Needed for native USB port only
   }
 
   pinMode(2, INPUT);   // digital sensor is on digital pin 2
@@ -59,7 +59,7 @@ void loop() {
 
 void establishContact() {
   while (Serial.available() <= 0) {
-    Serial.print('A');   // send a capital A
+    Serial.print('A');  // send a capital A
     delay(300);
   }
 }

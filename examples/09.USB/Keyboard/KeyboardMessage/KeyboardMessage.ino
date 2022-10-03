@@ -22,9 +22,9 @@
 
 #include "Keyboard.h"
 
-const int buttonPin = 4;          // input pin for pushbutton
-int previousButtonState = HIGH;   // for checking the state of a pushButton
-int counter = 0;                  // button push counter
+const int buttonPin = 4;         // input pin for pushbutton
+int previousButtonState = HIGH;  // for checking the state of a pushButton
+int counter = 0;                 // button push counter
 
 void setup() {
   // make the pushButton pin an input:

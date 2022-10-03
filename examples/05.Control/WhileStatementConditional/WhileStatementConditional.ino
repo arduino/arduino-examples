@@ -29,16 +29,16 @@
 
 
 // These constants won't change:
-const int sensorPin = A0;       // pin that the sensor is attached to
-const int ledPin = 9;           // pin that the LED is attached to
-const int indicatorLedPin = 13; // pin that the built-in LED is attached to
-const int buttonPin = 2;        // pin that the button is attached to
+const int sensorPin = A0;        // pin that the sensor is attached to
+const int ledPin = 9;            // pin that the LED is attached to
+const int indicatorLedPin = 13;  // pin that the built-in LED is attached to
+const int buttonPin = 2;         // pin that the button is attached to
 
 
 // These variables will change:
 int sensorMin = 1023;  // minimum sensor value
 int sensorMax = 0;     // maximum sensor value
-int sensorValue = 0;         // the sensor value
+int sensorValue = 0;   // the sensor value
 
 
 void setup() {

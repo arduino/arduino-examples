@@ -23,7 +23,7 @@ void setup() {
   //Initialize serial and wait for port to open:
   Serial.begin(9600);
   while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB port only
+    ;  // wait for serial port to connect. Needed for native USB port only
   }
 
   // prints title with ending line break
@@ -66,7 +66,7 @@ void loop() {
   Serial.println(thisByte, BIN);
 
   // if printed last visible character '~' or 126, stop:
-  if (thisByte == 126) {    // you could also use if (thisByte == '~') {
+  if (thisByte == 126) {  // you could also use if (thisByte == '~') {
     // This loop loops forever and does nothing
     while (true) {
       continue;

@@ -21,21 +21,21 @@
   This example code is part of the public domain.
 */
 
-const int greenLEDPin = 9;    // LED connected to digital pin 9
-const int redLEDPin = 10;     // LED connected to digital pin 10
-const int blueLEDPin = 11;    // LED connected to digital pin 11
+const int greenLEDPin = 9;  // LED connected to digital pin 9
+const int redLEDPin = 10;   // LED connected to digital pin 10
+const int blueLEDPin = 11;  // LED connected to digital pin 11
 
-const int redSensorPin = A0;  // pin with the photoresistor with the red gel
-const int greenSensorPin = A1;   // pin with the photoresistor with the green gel
+const int redSensorPin = A0;    // pin with the photoresistor with the red gel
+const int greenSensorPin = A1;  // pin with the photoresistor with the green gel
 const int blueSensorPin = A2;   // pin with the photoresistor with the blue gel
 
-int redValue = 0; // value to write to the red LED
-int greenValue = 0; // value to write to the green LED
-int blueValue = 0; // value to write to the blue LED
+int redValue = 0;    // value to write to the red LED
+int greenValue = 0;  // value to write to the green LED
+int blueValue = 0;   // value to write to the blue LED
 
-int redSensorValue = 0; // variable to hold the value from the red sensor
-int greenSensorValue = 0; // variable to hold the value from the green sensor
-int blueSensorValue = 0; // variable to hold the value from the blue sensor
+int redSensorValue = 0;    // variable to hold the value from the red sensor
+int greenSensorValue = 0;  // variable to hold the value from the green sensor
+int blueSensorValue = 0;   // variable to hold the value from the blue sensor
 
 void setup() {
   // initialize serial communications at 9600 bps:

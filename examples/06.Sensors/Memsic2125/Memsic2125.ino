@@ -22,8 +22,8 @@
 */
 
 // these constants won't change:
-const int xPin = 2;		// X output of the accelerometer
-const int yPin = 3;		// Y output of the accelerometer
+const int xPin = 2;  // X output of the accelerometer
+const int yPin = 3;  // Y output of the accelerometer
 
 void setup() {
   // initialize serial communications:

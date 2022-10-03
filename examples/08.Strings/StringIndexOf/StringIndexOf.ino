@@ -16,7 +16,7 @@ void setup() {
   // Open serial communications and wait for port to open:
   Serial.begin(9600);
   while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB port only
+    ;  // wait for serial port to connect. Needed for native USB port only
   }
 
   // send an intro:
@@ -50,7 +50,7 @@ void loop() {
   int lastOpeningBracket = stringOne.lastIndexOf('<');
   Serial.println("The index of the last < in the string " + stringOne + " is " + lastOpeningBracket);
 
-  int lastListItem  = stringOne.lastIndexOf("<LI>");
+  int lastListItem = stringOne.lastIndexOf("<LI>");
   Serial.println("The index of the last list tag in the string " + stringOne + " is " + lastListItem);
 
 
@@ -61,5 +61,6 @@ void loop() {
   Serial.println("The index of the second to last paragraph tag " + stringOne + " is " + secondLastGraf);
 
   // do nothing while true:
-  while (true);
+  while (true)
+    ;
 }
