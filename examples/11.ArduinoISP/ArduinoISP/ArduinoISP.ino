@@ -50,7 +50,7 @@
 //
 // A clock slow enough for an ATtiny85 @ 1 MHz, is a reasonable default:
 
-#define SPI_CLOCK 		(1000000/6)
+#define SPI_CLOCK (1000000 / 6)
 
 
 // Select hardware or software SPI, depending on SPI clock.
@@ -59,9 +59,9 @@
 
 #if defined(ARDUINO_ARCH_AVR)
 
-  #if SPI_CLOCK > (F_CPU / 128)
-    #define USE_HARDWARE_SPI
-  #endif
+#if SPI_CLOCK > (F_CPU / 128)
+#define USE_HARDWARE_SPI
+#endif
 
 #endif
 
@@ -70,51 +70,51 @@
 // The standard pin configuration.
 #ifndef ARDUINO_HOODLOADER2
 
-  #define RESET     10 // Use pin 10 to reset the target rather than SS
-  #define LED_HB    9
-  #define LED_ERR   8
-  #define LED_PMODE 7
+#define RESET 10  // Use pin 10 to reset the target rather than SS
+#define LED_HB 9
+#define LED_ERR 8
+#define LED_PMODE 7
 
-  // Uncomment following line to use the old Uno style wiring
-  // (using pin 11, 12 and 13 instead of the SPI header) on Leonardo, Due...
+// Uncomment following line to use the old Uno style wiring
+// (using pin 11, 12 and 13 instead of the SPI header) on Leonardo, Due...
 
-  // #define USE_OLD_STYLE_WIRING
+// #define USE_OLD_STYLE_WIRING
 
-  #ifdef USE_OLD_STYLE_WIRING
+#ifdef USE_OLD_STYLE_WIRING
 
-    #define PIN_MOSI	11
-    #define PIN_MISO	12
-    #define PIN_SCK		13
+#define PIN_MOSI 11
+#define PIN_MISO 12
+#define PIN_SCK 13
 
-  #endif
+#endif
 
-  // HOODLOADER2 means running sketches on the ATmega16U2 serial converter chips
-  // on Uno or Mega boards. We must use pins that are broken out:
+// HOODLOADER2 means running sketches on the ATmega16U2 serial converter chips
+// on Uno or Mega boards. We must use pins that are broken out:
 #else
 
-  #define RESET     	4
-  #define LED_HB    	7
-  #define LED_ERR   	6
-  #define LED_PMODE 	5
+#define RESET 4
+#define LED_HB 7
+#define LED_ERR 6
+#define LED_PMODE 5
 
 #endif
 
 // By default, use hardware SPI pins:
 #ifndef PIN_MOSI
-  #define PIN_MOSI 	MOSI
+#define PIN_MOSI MOSI
 #endif
 
 #ifndef PIN_MISO
-  #define PIN_MISO 	MISO
+#define PIN_MISO MISO
 #endif
 
 #ifndef PIN_SCK
-  #define PIN_SCK 	SCK
+#define PIN_SCK SCK
 #endif
 
 // Force bitbanged SPI if not using the hardware SPI pins:
-#if (PIN_MISO != MISO) ||  (PIN_MOSI != MOSI) || (PIN_SCK != SCK)
-  #undef USE_HARDWARE_SPI
+#if (PIN_MISO != MISO) || (PIN_MOSI != MOSI) || (PIN_SCK != SCK)
+#undef USE_HARDWARE_SPI
 #endif
 
 
@@ -131,15 +131,15 @@
 // To use 'Serial': #define SERIAL Serial
 
 #ifdef SERIAL_PORT_USBVIRTUAL
-  #define SERIAL SERIAL_PORT_USBVIRTUAL
+#define SERIAL SERIAL_PORT_USBVIRTUAL
 #else
-  #define SERIAL Serial
+#define SERIAL Serial
 #endif
 
 
 // Configure the baud rate:
 
-#define BAUDRATE	19200
+#define BAUDRATE 19200
 // #define BAUDRATE	115200
 // #define BAUDRATE	1000000
 
@@ -149,12 +149,12 @@
 #define SWMIN 18
 
 // STK Definitions
-#define STK_OK      0x10
-#define STK_FAILED  0x11
+#define STK_OK 0x10
+#define STK_FAILED 0x11
 #define STK_UNKNOWN 0x12
-#define STK_INSYNC  0x14
-#define STK_NOSYNC  0x15
-#define CRC_EOP     0x20 //ok it is a space...
+#define STK_INSYNC 0x14
+#define STK_NOSYNC 0x15
+#define CRC_EOP 0x20  //ok it is a space...
 
 void pulse(int pin, int times);
 
@@ -164,57 +164,58 @@ void pulse(int pin, int times);
 
 #define SPI_MODE0 0x00
 
-#if !defined(ARDUINO_API_VERSION) || ARDUINO_API_VERSION != 10001 // A SPISettings class is declared by ArduinoCore-API 1.0.1
+#if !defined(ARDUINO_API_VERSION) || ARDUINO_API_VERSION != 10001  // A SPISettings class is declared by ArduinoCore-API 1.0.1
 class SPISettings {
-  public:
-    // clock is in Hz
-    SPISettings(uint32_t clock, uint8_t bitOrder, uint8_t dataMode) : clockFreq(clock) {
-      (void) bitOrder;
-      (void) dataMode;
-    };
+public:
+  // clock is in Hz
+  SPISettings(uint32_t clock, uint8_t bitOrder, uint8_t dataMode)
+    : clockFreq(clock) {
+    (void)bitOrder;
+    (void)dataMode;
+  };
 
-    uint32_t getClockFreq() const {
-      return clockFreq;
-    }
+  uint32_t getClockFreq() const {
+    return clockFreq;
+  }
 
-  private:
-    uint32_t clockFreq;
+private:
+  uint32_t clockFreq;
 };
-#endif  // !defined(ARDUINO_API_VERSION)
+#endif                                                             // !defined(ARDUINO_API_VERSION)
 
 class BitBangedSPI {
-  public:
-    void begin() {
-      digitalWrite(PIN_SCK, LOW);
-      digitalWrite(PIN_MOSI, LOW);
-      pinMode(PIN_SCK, OUTPUT);
-      pinMode(PIN_MOSI, OUTPUT);
-      pinMode(PIN_MISO, INPUT);
+public:
+  void begin() {
+    digitalWrite(PIN_SCK, LOW);
+    digitalWrite(PIN_MOSI, LOW);
+    pinMode(PIN_SCK, OUTPUT);
+    pinMode(PIN_MOSI, OUTPUT);
+    pinMode(PIN_MISO, INPUT);
+  }
+
+  void beginTransaction(SPISettings settings) {
+    pulseWidth = (500000 + settings.getClockFreq() - 1) / settings.getClockFreq();
+    if (pulseWidth == 0) {
+      pulseWidth = 1;
     }
+  }
 
-    void beginTransaction(SPISettings settings) {
-      pulseWidth = (500000 + settings.getClockFreq() - 1) / settings.getClockFreq();
-      if (pulseWidth == 0) {
-        pulseWidth = 1;
-      }
+  void end() {}
+
+  uint8_t transfer(uint8_t b) {
+    for (unsigned int i = 0; i < 8; ++i) {
+      digitalWrite(PIN_MOSI, (b & 0x80) ? HIGH : LOW);
+      digitalWrite(PIN_SCK, HIGH);
+      delayMicroseconds(pulseWidth);
+      b = (b << 1) | digitalRead(PIN_MISO);
+      digitalWrite(PIN_SCK, LOW);  // slow pulse
+      delayMicroseconds(pulseWidth);
     }
+    return b;
+  }
 
-    void end() {}
-
-    uint8_t transfer(uint8_t b) {
-      for (unsigned int i = 0; i < 8; ++i) {
-        digitalWrite(PIN_MOSI, (b & 0x80) ? HIGH : LOW);
-        digitalWrite(PIN_SCK, HIGH);
-        delayMicroseconds(pulseWidth);
-        b = (b << 1) | digitalRead(PIN_MISO);
-        digitalWrite(PIN_SCK, LOW); // slow pulse
-        delayMicroseconds(pulseWidth);
-      }
-      return b;
-    }
-
-  private:
-    unsigned long pulseWidth; // in microseconds
+private:
+  unsigned long pulseWidth;  // in microseconds
 };
 
 static BitBangedSPI SPI;
@@ -230,16 +231,15 @@ void setup() {
   pulse(LED_ERR, 2);
   pinMode(LED_HB, OUTPUT);
   pulse(LED_HB, 2);
-
 }
 
 int ISPError = 0;
 int pmode = 0;
 // address for reading and writing, set by 'U' command
 unsigned int here;
-uint8_t buff[256]; // global block storage
+uint8_t buff[256];  // global block storage
 
-#define beget16(addr) (*addr * 256 + *(addr+1) )
+#define beget16(addr) (*addr * 256 + *(addr + 1))
 typedef struct param {
   uint8_t devicecode;
   uint8_t revision;
@@ -254,8 +254,7 @@ typedef struct param {
   uint16_t pagesize;
   uint16_t eepromsize;
   uint32_t flashsize;
-}
-parameter;
+} parameter;
 
 parameter param;
 
@@ -307,7 +306,8 @@ void loop(void) {
 }
 
 uint8_t getch() {
-  while (!SERIAL.available());
+  while (!SERIAL.available())
+    ;
   return SERIAL.read();
 }
 void fill(int n) {
@@ -372,7 +372,7 @@ void get_version(uint8_t c) {
       breply(SWMIN);
       break;
     case 0x93:
-      breply('S'); // serial programmer
+      breply('S');  // serial programmer
       break;
     default:
       breply(0);
@@ -382,18 +382,18 @@ void get_version(uint8_t c) {
 void set_parameters() {
   // call this after reading parameter packet into buff[]
   param.devicecode = buff[0];
-  param.revision   = buff[1];
-  param.progtype   = buff[2];
-  param.parmode    = buff[3];
-  param.polling    = buff[4];
-  param.selftimed  = buff[5];
-  param.lockbytes  = buff[6];
-  param.fusebytes  = buff[7];
-  param.flashpoll  = buff[8];
+  param.revision = buff[1];
+  param.progtype = buff[2];
+  param.parmode = buff[3];
+  param.polling = buff[4];
+  param.selftimed = buff[5];
+  param.lockbytes = buff[6];
+  param.fusebytes = buff[7];
+  param.flashpoll = buff[8];
   // ignore buff[9] (= buff[8])
   // following are 16 bits (big endian)
   param.eeprompoll = beget16(&buff[10]);
-  param.pagesize   = beget16(&buff[12]);
+  param.pagesize = beget16(&buff[12]);
   param.eepromsize = beget16(&buff[14]);
 
   // 32 bits flashsize (big endian)
@@ -423,7 +423,7 @@ void start_pmode() {
 
   // Pulse RESET after PIN_SCK is low:
   digitalWrite(PIN_SCK, LOW);
-  delay(20); // discharge PIN_SCK, value arbitrarily chosen
+  delay(20);  // discharge PIN_SCK, value arbitrarily chosen
   reset_target(false);
   // Pulse must be minimum 2 target CPU clock cycles so 100 usec is ok for CPU
   // speeds above 20 KHz
@@ -431,7 +431,7 @@ void start_pmode() {
   reset_target(true);
 
   // Send the enable programming command:
-  delay(50); // datasheet: must be > 20 msec
+  delay(50);  // datasheet: must be > 20 msec
   spi_transaction(0xAC, 0x53, 0x00, 0x00);
   pmode = 1;
 }
@@ -491,11 +491,11 @@ unsigned int current_page() {
 void write_flash(int length) {
   fill(length);
   if (CRC_EOP == getch()) {
-    SERIAL.print((char) STK_INSYNC);
-    SERIAL.print((char) write_flash_pages(length));
+    SERIAL.print((char)STK_INSYNC);
+    SERIAL.print((char)write_flash_pages(length));
   } else {
     ISPError++;
-    SERIAL.print((char) STK_NOSYNC);
+    SERIAL.print((char)STK_NOSYNC);
   }
 }
 
@@ -549,7 +549,7 @@ uint8_t write_eeprom_chunk(unsigned int start, unsigned int length) {
 }
 
 void program_page() {
-  char result = (char) STK_FAILED;
+  char result = (char)STK_FAILED;
   unsigned int length = 256 * getch();
   length += getch();
   char memtype = getch();
@@ -561,11 +561,11 @@ void program_page() {
   if (memtype == 'E') {
     result = (char)write_eeprom(length);
     if (CRC_EOP == getch()) {
-      SERIAL.print((char) STK_INSYNC);
+      SERIAL.print((char)STK_INSYNC);
       SERIAL.print(result);
     } else {
       ISPError++;
-      SERIAL.print((char) STK_NOSYNC);
+      SERIAL.print((char)STK_NOSYNC);
     }
     return;
   }
@@ -583,9 +583,9 @@ uint8_t flash_read(uint8_t hilo, unsigned int addr) {
 char flash_read_page(int length) {
   for (int x = 0; x < length; x += 2) {
     uint8_t low = flash_read(LOW, here);
-    SERIAL.print((char) low);
+    SERIAL.print((char)low);
     uint8_t high = flash_read(HIGH, here);
-    SERIAL.print((char) high);
+    SERIAL.print((char)high);
     here++;
   }
   return STK_OK;
@@ -597,7 +597,7 @@ char eeprom_read_page(int length) {
   for (int x = 0; x < length; x++) {
     int addr = start + x;
     uint8_t ee = spi_transaction(0xA0, (addr >> 8) & 0xFF, addr & 0xFF, 0xFF);
-    SERIAL.print((char) ee);
+    SERIAL.print((char)ee);
   }
   return STK_OK;
 }
@@ -609,10 +609,10 @@ void read_page() {
   char memtype = getch();
   if (CRC_EOP != getch()) {
     ISPError++;
-    SERIAL.print((char) STK_NOSYNC);
+    SERIAL.print((char)STK_NOSYNC);
     return;
   }
-  SERIAL.print((char) STK_INSYNC);
+  SERIAL.print((char)STK_INSYNC);
   if (memtype == 'F') {
     result = flash_read_page(length);
   }
@@ -625,17 +625,17 @@ void read_page() {
 void read_signature() {
   if (CRC_EOP != getch()) {
     ISPError++;
-    SERIAL.print((char) STK_NOSYNC);
+    SERIAL.print((char)STK_NOSYNC);
     return;
   }
-  SERIAL.print((char) STK_INSYNC);
+  SERIAL.print((char)STK_INSYNC);
   uint8_t high = spi_transaction(0x30, 0x00, 0x00, 0x00);
-  SERIAL.print((char) high);
+  SERIAL.print((char)high);
   uint8_t middle = spi_transaction(0x30, 0x00, 0x01, 0x00);
-  SERIAL.print((char) middle);
+  SERIAL.print((char)middle);
   uint8_t low = spi_transaction(0x30, 0x00, 0x02, 0x00);
-  SERIAL.print((char) low);
-  SERIAL.print((char) STK_OK);
+  SERIAL.print((char)low);
+  SERIAL.print((char)STK_OK);
 }
 //////////////////////////////////////////
 //////////////////////////////////////////
@@ -646,18 +646,18 @@ void read_signature() {
 void avrisp() {
   uint8_t ch = getch();
   switch (ch) {
-    case '0': // signon
+    case '0':  // signon
       ISPError = 0;
       empty_reply();
       break;
     case '1':
       if (getch() == CRC_EOP) {
-        SERIAL.print((char) STK_INSYNC);
+        SERIAL.print((char)STK_INSYNC);
         SERIAL.print("AVR ISP");
-        SERIAL.print((char) STK_OK);
+        SERIAL.print((char)STK_OK);
       } else {
         ISPError++;
-        SERIAL.print((char) STK_NOSYNC);
+        SERIAL.print((char)STK_NOSYNC);
       }
       break;
     case 'A':
@@ -668,7 +668,7 @@ void avrisp() {
       set_parameters();
       empty_reply();
       break;
-    case 'E': // extended parameters - ignore for now
+    case 'E':  // extended parameters - ignore for now
       fill(5);
       empty_reply();
       break;
@@ -678,40 +678,40 @@ void avrisp() {
       }
       empty_reply();
       break;
-    case 'U': // set address (word)
+    case 'U':  // set address (word)
       here = getch();
       here += 256 * getch();
       empty_reply();
       break;
 
-    case 0x60: //STK_PROG_FLASH
-      getch(); // low addr
-      getch(); // high addr
+    case 0x60:  //STK_PROG_FLASH
+      getch();  // low addr
+      getch();  // high addr
       empty_reply();
       break;
-    case 0x61: //STK_PROG_DATA
-      getch(); // data
+    case 0x61:  //STK_PROG_DATA
+      getch();  // data
       empty_reply();
       break;
 
-    case 0x64: //STK_PROG_PAGE
+    case 0x64:  //STK_PROG_PAGE
       program_page();
       break;
 
-    case 0x74: //STK_READ_PAGE 't'
+    case 0x74:  //STK_READ_PAGE 't'
       read_page();
       break;
 
-    case 'V': //0x56
+    case 'V':  //0x56
       universal();
       break;
-    case 'Q': //0x51
+    case 'Q':  //0x51
       ISPError = 0;
       end_pmode();
       empty_reply();
       break;
 
-    case 0x75: //STK_READ_SIGN 'u'
+    case 0x75:  //STK_READ_SIGN 'u'
       read_signature();
       break;
 
@@ -719,7 +719,7 @@ void avrisp() {
     // this is how we can get back in sync
     case CRC_EOP:
       ISPError++;
-      SERIAL.print((char) STK_NOSYNC);
+      SERIAL.print((char)STK_NOSYNC);
       break;
 
     // anything else we will return STK_UNKNOWN

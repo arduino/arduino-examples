@@ -31,7 +31,7 @@ const int leftButton = 4;
 const int rightButton = 5;
 const int mouseButton = 6;
 
-void setup() { // initialize the buttons' inputs:
+void setup() {  // initialize the buttons' inputs:
   pinMode(upButton, INPUT);
   pinMode(downButton, INPUT);
   pinMode(leftButton, INPUT);
@@ -89,5 +89,4 @@ void loop() {
   if (digitalRead(mouseButton) == HIGH) {
     Keyboard.write('m');
   }
-
 }

@@ -17,7 +17,7 @@
   https://www.arduino.cc/en/Tutorial/BuiltInExamples/ForLoopIteration
 */
 
-int timer = 100;           // The higher the number, the slower the timing.
+int timer = 100;  // The higher the number, the slower the timing.
 
 void setup() {
   // use a for loop to initialize each pin as an output:

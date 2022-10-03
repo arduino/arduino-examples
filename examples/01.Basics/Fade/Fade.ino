@@ -13,9 +13,9 @@
   https://www.arduino.cc/en/Tutorial/BuiltInExamples/Fade
 */
 
-int led = 9;           // the PWM pin the LED is attached to
-int brightness = 0;    // how bright the LED is
-int fadeAmount = 5;    // how many points to fade the LED by
+int led = 9;         // the PWM pin the LED is attached to
+int brightness = 0;  // how bright the LED is
+int fadeAmount = 5;  // how many points to fade the LED by
 
 // the setup routine runs once when you press reset:
 void setup() {

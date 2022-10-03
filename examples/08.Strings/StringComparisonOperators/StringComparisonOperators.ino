@@ -18,7 +18,7 @@ void setup() {
   // Open serial communications and wait for port to open:
   Serial.begin(9600);
   while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB port only
+    ;  // wait for serial port to connect. Needed for native USB port only
   }
 
 
@@ -27,7 +27,6 @@ void setup() {
   // send an intro:
   Serial.println("\n\nComparing Strings:");
   Serial.println();
-
 }
 
 void loop() {
@@ -122,7 +121,6 @@ void loop() {
       Serial.println(stringOne + " comes before " + stringTwo);
     } else {
       Serial.println(stringOne + " comes after " + stringTwo);
-
     }
   }
 }

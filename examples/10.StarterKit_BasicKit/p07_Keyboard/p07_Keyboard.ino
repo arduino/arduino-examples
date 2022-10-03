@@ -21,7 +21,7 @@
 
 // create an array of notes
 // the numbers below correspond to the frequencies of middle C, D, E, and F
-int notes[] = {262, 294, 330, 349};
+int notes[] = { 262, 294, 330, 349 };
 
 void setup() {
   //start serial communication

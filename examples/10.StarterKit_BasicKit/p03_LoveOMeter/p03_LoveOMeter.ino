@@ -61,17 +61,17 @@ void loop() {
     digitalWrite(2, LOW);
     digitalWrite(3, LOW);
     digitalWrite(4, LOW);
-  } // if the temperature rises 2-4 degrees, turn an LED on
+  }  // if the temperature rises 2-4 degrees, turn an LED on
   else if (temperature >= baselineTemp + 2 && temperature < baselineTemp + 4) {
     digitalWrite(2, HIGH);
     digitalWrite(3, LOW);
     digitalWrite(4, LOW);
-  } // if the temperature rises 4-6 degrees, turn a second LED on
+  }  // if the temperature rises 4-6 degrees, turn a second LED on
   else if (temperature >= baselineTemp + 4 && temperature < baselineTemp + 6) {
     digitalWrite(2, HIGH);
     digitalWrite(3, HIGH);
     digitalWrite(4, LOW);
-  } // if the temperature rises more than 6 degrees, turn all LEDs on
+  }  // if the temperature rises more than 6 degrees, turn all LEDs on
   else if (temperature >= baselineTemp + 6) {
     digitalWrite(2, HIGH);
     digitalWrite(3, HIGH);

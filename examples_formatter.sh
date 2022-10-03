@@ -1,2 +1,22 @@
-# you need to have astyle installed before running this
-find examples -regextype posix-extended -regex '.*\.((ino)|(h)|(cpp)|(c))$' -and -type f -exec astyle --options=examples_formatter.conf {} \;
+if ! which clang-format &>/dev/null; then
+  echo "clang-format not found or not in PATH. Please install: https://github.com/arduino/clang-static-binaries/releases"
+  exit 1
+fi
+
+find \
+  examples \
+  \( \
+    -name '*.c' -or \
+    -name '*.cpp' -or \
+    -name '*.h' -or \
+    -name '*.ino' -or \
+    -name '*.ipp' -or \
+    -name '*.tpp' \
+  \) \
+  -type f \
+  -exec \
+    clang-format \
+      --assume-filename=foo.cpp \
+      -i \
+      --style=file \
+      {} \;

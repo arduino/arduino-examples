@@ -30,11 +30,11 @@
 // create an instance of the Servo library
 Servo myServo;
 
-const int piezo = A0;      // pin the piezo is attached to
-const int switchPin = 2;    // pin the switch is attached to
-const int yellowLed = 3;    // pin the yellow LED is attached to
-const int greenLed = 4;    // pin the green LED is attached to
-const int redLed = 5;   // pin the red LED is attached to
+const int piezo = A0;     // pin the piezo is attached to
+const int switchPin = 2;  // pin the switch is attached to
+const int yellowLed = 3;  // pin the yellow LED is attached to
+const int greenLed = 4;   // pin the green LED is attached to
+const int redLed = 5;     // pin the red LED is attached to
 
 // variable for the piezo value
 int knockVal;

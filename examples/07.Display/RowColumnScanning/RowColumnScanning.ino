@@ -83,7 +83,6 @@ void readSensors() {
   // set the new pixel position low so that the LED will turn on in the next
   // screen refresh:
   pixels[x][y] = LOW;
-
 }
 
 void refreshScreen() {

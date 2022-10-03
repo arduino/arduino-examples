@@ -32,8 +32,8 @@ const int leftButton = 4;
 const int rightButton = 5;
 const int mouseButton = 6;
 
-int range = 5;              // output range of X or Y movement; affects movement speed
-int responseDelay = 10;     // response delay of the mouse, in ms
+int range = 5;           // output range of X or Y movement; affects movement speed
+int responseDelay = 10;  // response delay of the mouse, in ms
 
 
 void setup() {
@@ -56,8 +56,8 @@ void loop() {
   int clickState = digitalRead(mouseButton);
 
   // calculate the movement distance based on the button states:
-  int  xDistance = (leftState - rightState) * range;
-  int  yDistance = (upState - downState) * range;
+  int xDistance = (leftState - rightState) * range;
+  int yDistance = (upState - downState) * range;
 
   // if X or Y is non-zero, move:
   if ((xDistance != 0) || (yDistance != 0)) {

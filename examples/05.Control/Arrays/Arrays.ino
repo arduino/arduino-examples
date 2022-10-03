@@ -20,11 +20,11 @@
   https://www.arduino.cc/en/Tutorial/BuiltInExamples/Arrays
 */
 
-int timer = 100;           // The higher the number, the slower the timing.
+int timer = 100;  // The higher the number, the slower the timing.
 int ledPins[] = {
   2, 7, 4, 6, 5, 3
-};       // an array of pin numbers to which LEDs are attached
-int pinCount = 6;           // the number of pins (i.e. the length of the array)
+};                 // an array of pin numbers to which LEDs are attached
+int pinCount = 6;  // the number of pins (i.e. the length of the array)
 
 void setup() {
   // the array elements are numbered from 0 to (pinCount - 1).
@@ -42,7 +42,6 @@ void loop() {
     delay(timer);
     // turn the pin off:
     digitalWrite(ledPins[thisPin], LOW);
-
   }
 
   // loop from the highest pin to the lowest:

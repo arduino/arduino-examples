@@ -18,7 +18,7 @@ void setup() {
   // Open serial communications and wait for port to open:
   Serial.begin(9600);
   while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB port only
+    ;  // wait for serial port to connect. Needed for native USB port only
   }
 
   stringOne = String("Sensor ");
@@ -41,11 +41,11 @@ void loop() {
 
   // adding a constant character to a String:
   stringOne += 'A';
-  Serial.println(stringOne);   // prints "Sensor value for input A"
+  Serial.println(stringOne);  // prints "Sensor value for input A"
 
   // adding a constant integer to a String:
   stringOne += 0;
-  Serial.println(stringOne);   // prints "Sensor value for input A0"
+  Serial.println(stringOne);  // prints "Sensor value for input A0"
 
   // adding a constant string to a String:
   stringOne += ": ";
@@ -53,7 +53,7 @@ void loop() {
 
   // adding a variable integer to a String:
   stringOne += analogRead(A0);
-  Serial.println(stringOne);   // prints "Sensor value for input A0: 456" or whatever analogRead(A0) is
+  Serial.println(stringOne);  // prints "Sensor value for input A0: 456" or whatever analogRead(A0) is
 
   Serial.println("\n\nchanging the Strings' values");
   stringOne = "A long integer: ";
@@ -61,12 +61,13 @@ void loop() {
 
   // adding a constant long integer to a String:
   stringOne += 123456789;
-  Serial.println(stringOne);   // prints "A long integer: 123456789"
+  Serial.println(stringOne);  // prints "A long integer: 123456789"
 
   // using concat() to add a long variable to a String:
   stringTwo.concat(millis());
-  Serial.println(stringTwo); // prints "The millis(): 43534" or whatever the value of the millis() is
+  Serial.println(stringTwo);  // prints "The millis(): 43534" or whatever the value of the millis() is
 
   // do nothing while true:
-  while (true);
+  while (true)
+    ;
 }

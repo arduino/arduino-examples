@@ -35,5 +35,5 @@ void loop() {
 
   // play the pitch:
   tone(9, thisPitch, 10);
-  delay(1);        // delay in between reads for stability
+  delay(1);  // delay in between reads for stability
 }

@@ -16,7 +16,6 @@
 */
 
 void setup() {
-
 }
 
 void loop() {

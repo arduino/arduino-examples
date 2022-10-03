@@ -21,8 +21,8 @@
   https://www.arduino.cc/en/Tutorial/BuiltInExamples/PhysicalPixel
 */
 
-const int ledPin = 13; // the pin that the LED is attached to
-int incomingByte;      // a variable to read incoming serial data into
+const int ledPin = 13;  // the pin that the LED is attached to
+int incomingByte;       // a variable to read incoming serial data into
 
 void setup() {
   // initialize serial communication:

@@ -22,16 +22,16 @@
   https://www.arduino.cc/en/Tutorial/BuiltInExamples/SerialCallResponseASCII
 */
 
-int firstSensor = 0;    // first analog sensor
-int secondSensor = 0;   // second analog sensor
-int thirdSensor = 0;    // digital sensor
-int inByte = 0;         // incoming serial byte
+int firstSensor = 0;   // first analog sensor
+int secondSensor = 0;  // second analog sensor
+int thirdSensor = 0;   // digital sensor
+int inByte = 0;        // incoming serial byte
 
 void setup() {
   // start serial port at 9600 bps and wait for port to open:
   Serial.begin(9600);
   while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB port only
+    ;  // wait for serial port to connect. Needed for native USB port only
   }
 
 
@@ -61,7 +61,7 @@ void loop() {
 
 void establishContact() {
   while (Serial.available() <= 0) {
-    Serial.println("0,0,0");   // send an initial string
+    Serial.println("0,0,0");  // send an initial string
     delay(300);
   }
 }

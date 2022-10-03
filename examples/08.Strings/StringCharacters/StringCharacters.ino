@@ -16,7 +16,7 @@ void setup() {
   // Open serial communications and wait for port to open:
   Serial.begin(9600);
   while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB port only
+    ;  // wait for serial port to connect. Needed for native USB port only
   }
 
   Serial.println("\n\nString charAt() and setCharAt():");
@@ -41,5 +41,6 @@ void loop() {
   Serial.println(reportString);
 
   // do nothing while true:
-  while (true);
+  while (true)
+    ;
 }

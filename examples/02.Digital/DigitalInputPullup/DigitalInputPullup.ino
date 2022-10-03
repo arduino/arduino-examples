@@ -26,7 +26,6 @@ void setup() {
   //configure pin 2 as an input and enable the internal pull-up resistor
   pinMode(2, INPUT_PULLUP);
   pinMode(13, OUTPUT);
-
 }
 
 void loop() {

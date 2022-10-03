@@ -18,7 +18,7 @@
   https://www.arduino.cc/en/Tutorial/BuiltInExamples/SerialEvent
 */
 
-String inputString = "";         // a String to hold incoming data
+String inputString = "";      // a String to hold incoming data
 bool stringComplete = false;  // whether the string is complete
 
 void setup() {

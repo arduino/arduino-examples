@@ -22,17 +22,17 @@
 
 Servo myServo;  // create a servo object
 
-int const potPin = A0; // analog pin used to connect the potentiometer
-int potVal;  // variable to read the value from the analog pin
-int angle;   // variable to hold the angle for the servo motor
+int const potPin = A0;  // analog pin used to connect the potentiometer
+int potVal;             // variable to read the value from the analog pin
+int angle;              // variable to hold the angle for the servo motor
 
 void setup() {
-  myServo.attach(9); // attaches the servo on pin 9 to the servo object
-  Serial.begin(9600); // open a serial connection to your computer
+  myServo.attach(9);   // attaches the servo on pin 9 to the servo object
+  Serial.begin(9600);  // open a serial connection to your computer
 }
 
 void loop() {
-  potVal = analogRead(potPin); // read the value of the potentiometer
+  potVal = analogRead(potPin);  // read the value of the potentiometer
   // print out the value to the Serial Monitor
   Serial.print("potVal: ");
   Serial.print(potVal);
