@@ -5,7 +5,9 @@ find \
     -name '*.c' -or \
     -name '*.cpp' -or \
     -name '*.h' -or \
-    -name '*.ino' \
+    -name '*.ino' -or \
+    -name '*.ipp' -or \
+    -name '*.tpp' \
   \) \
   -type f \
   -exec \
