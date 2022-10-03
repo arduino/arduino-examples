@@ -4,11 +4,13 @@ on:
   pull_request:
     paths:
       - ".github/workflows/code-formatting-check.yml"
+      - "examples_formatter.conf"
       - "examples_formatter.sh"
       - "examples/**"
   push:
     paths:
       - ".github/workflows/code-formatting-check.yml"
+      - "examples_formatter.conf"
       - "examples_formatter.sh"
       - "examples/**"
 
