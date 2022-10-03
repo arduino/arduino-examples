@@ -1,8 +1,12 @@
 # you need to have astyle installed before running this
 find \
   examples \
-  -regextype posix-extended \
-  -regex '.*\.((ino)|(h)|(cpp)|(c))$' -and \
+  \( \
+    -name '*.c' -or \
+    -name '*.cpp' -or \
+    -name '*.h' -or \
+    -name '*.ino' \
+  \) \
   -type f \
   -exec \
     astyle \
