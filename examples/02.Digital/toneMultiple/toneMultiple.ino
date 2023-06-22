@@ -15,25 +15,29 @@
   https://www.arduino.cc/en/Tutorial/BuiltInExamples/toneMultiple
 */
 
+int buzzerOnePin = 6;
+int buzzerTwoPin = 7;
+int buzzerThreePin = 8;
+
 void setup() {
 }
 
 void loop() {
   // turn off tone function for pin 8:
-  noTone(8);
+  noTone(buzzerThreePin);
   // play a note on pin 6 for 200 ms:
-  tone(6, 440, 200);
+  tone(buzzerOnePin, 440, 200);
   delay(200);
 
   // turn off tone function for pin 6:
-  noTone(6);
+  noTone(buzzerOnePin);
   // play a note on pin 7 for 500 ms:
-  tone(7, 494, 500);
+  tone(buzzerTwoPin, 494, 500);
   delay(500);
 
   // turn off tone function for pin 7:
-  noTone(7);
+  noTone(buzzerTwoPin);
   // play a note on pin 8 for 300 ms:
-  tone(8, 523, 300);
+  tone(buzzerThreePin, 523, 300);
   delay(300);
 }
