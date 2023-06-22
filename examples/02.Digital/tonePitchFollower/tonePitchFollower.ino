@@ -17,6 +17,8 @@
   https://www.arduino.cc/en/Tutorial/BuiltInExamples/tonePitchFollower
 */
 
+int buzzerPin = 9;
+
 void setup() {
   // initialize serial communications (for debugging only):
   Serial.begin(9600);
@@ -34,6 +36,6 @@ void loop() {
   int thisPitch = map(sensorReading, 400, 1000, 120, 1500);
 
   // play the pitch:
-  tone(9, thisPitch, 10);
+  tone(buzzerPin, thisPitch, 10);
   delay(1);  // delay in between reads for stability
 }
