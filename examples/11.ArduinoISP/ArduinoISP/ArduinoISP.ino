@@ -439,6 +439,7 @@ void start_pmode() {
 void end_pmode() {
   SPI.end();
   // We're about to take the target out of reset so configure SPI pins as input
+  pinMode(PIN_MISO, INPUT);
   pinMode(PIN_MOSI, INPUT);
   pinMode(PIN_SCK, INPUT);
   reset_target(false);
