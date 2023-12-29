@@ -30,7 +30,7 @@ void setup() {
 }
 
 void loop() {
-  char num[4] = "!!!!";
+  char num[4] = {'!', '!', '!', '!'};
   byte brightness = 0;
   int i;
   // check if data has been sent from the computer:
