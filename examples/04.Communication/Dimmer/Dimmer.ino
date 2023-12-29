@@ -30,12 +30,17 @@ void setup() {
 }
 
 void loop() {
-  byte brightness;
+  char num[4] = "!!!!";
+  byte brightness = 0;
 
   // check if data has been sent from the computer:
   if (Serial.available()) {
     // read the most recent byte (which will be from 0 to 255):
-    brightness = Serial.read();
+    Serial.readBytesUntil('\n', num, 4);
+    // calculate brightness
+    for(int i = 0; num[i] != '!'; i++){
+      brightness = brightness * 10 + num[i] - 48;
+    }
     // set the brightness of the LED:
     analogWrite(ledPin, brightness);
   }
