@@ -22,8 +22,8 @@
 // using an Uno. (On an Uno this is not needed).
 //
 // Alternatively you can use any other digital pin by configuring
-// software ('BitBanged') SPI and having appropriate defines for PIN_MOSI,
-// PIN_MISO and PIN_SCK.
+// software ('BitBanged') SPI and having appropriate defines for ARDUINOISP_PIN_MOSI,
+// ARDUINOISP_PIN_MISO and ARDUINOISP_PIN_SCK.
 //
 // IMPORTANT: When using an Arduino that is not 5V tolerant (Due, Zero, ...) as
 // the programmer, make sure to not expose any of the programmer's pins to 5V.
@@ -82,9 +82,9 @@
 
 #ifdef USE_OLD_STYLE_WIRING
 
-#define PIN_MOSI 11
-#define PIN_MISO 12
-#define PIN_SCK 13
+#define ARDUINOISP_PIN_MOSI 11
+#define ARDUINOISP_PIN_MISO 12
+#define ARDUINOISP_PIN_SCK 13
 
 #endif
 
@@ -100,20 +100,20 @@
 #endif
 
 // By default, use hardware SPI pins:
-#ifndef PIN_MOSI
-#define PIN_MOSI MOSI
+#ifndef ARDUINOISP_PIN_MOSI
+#define ARDUINOISP_PIN_MOSI MOSI
 #endif
 
-#ifndef PIN_MISO
-#define PIN_MISO MISO
+#ifndef ARDUINOISP_PIN_MISO
+#define ARDUINOISP_PIN_MISO MISO
 #endif
 
-#ifndef PIN_SCK
-#define PIN_SCK SCK
+#ifndef ARDUINOISP_PIN_SCK
+#define ARDUINOISP_PIN_SCK SCK
 #endif
 
 // Force bitbanged SPI if not using the hardware SPI pins:
-#if (PIN_MISO != MISO) || (PIN_MOSI != MOSI) || (PIN_SCK != SCK)
+#if (ARDUINOISP_PIN_MISO != MISO) || (ARDUINOISP_PIN_MOSI != MOSI) || (ARDUINOISP_PIN_SCK != SCK)
 #undef USE_HARDWARE_SPI
 #endif
 
@@ -186,11 +186,11 @@ private:
 class BitBangedSPI {
 public:
   void begin() {
-    digitalWrite(PIN_SCK, LOW);
-    digitalWrite(PIN_MOSI, LOW);
-    pinMode(PIN_SCK, OUTPUT);
-    pinMode(PIN_MOSI, OUTPUT);
-    pinMode(PIN_MISO, INPUT);
+    digitalWrite(ARDUINOISP_PIN_SCK, LOW);
+    digitalWrite(ARDUINOISP_PIN_MOSI, LOW);
+    pinMode(ARDUINOISP_PIN_SCK, OUTPUT);
+    pinMode(ARDUINOISP_PIN_MOSI, OUTPUT);
+    pinMode(ARDUINOISP_PIN_MISO, INPUT);
   }
 
   void beginTransaction(SPISettings settings) {
@@ -204,11 +204,11 @@ public:
 
   uint8_t transfer(uint8_t b) {
     for (unsigned int i = 0; i < 8; ++i) {
-      digitalWrite(PIN_MOSI, (b & 0x80) ? HIGH : LOW);
-      digitalWrite(PIN_SCK, HIGH);
+      digitalWrite(ARDUINOISP_PIN_MOSI, (b & 0x80) ? HIGH : LOW);
+      digitalWrite(ARDUINOISP_PIN_SCK, HIGH);
       delayMicroseconds(pulseWidth);
-      b = (b << 1) | digitalRead(PIN_MISO);
-      digitalWrite(PIN_SCK, LOW);  // slow pulse
+      b = (b << 1) | digitalRead(ARDUINOISP_PIN_MISO);
+      digitalWrite(ARDUINOISP_PIN_SCK, LOW);  // slow pulse
       delayMicroseconds(pulseWidth);
     }
     return b;
@@ -408,7 +408,7 @@ void set_parameters() {
 
 void start_pmode() {
 
-  // Reset target before driving PIN_SCK or PIN_MOSI
+  // Reset target before driving ARDUINOISP_PIN_SCK or ARDUINOISP_PIN_MOSI
 
   // SPI.begin() will configure SS as output, so SPI master mode is selected.
   // We have defined RESET as pin 10, which for many Arduinos is not the SS pin.
@@ -421,9 +421,9 @@ void start_pmode() {
 
   // See AVR datasheets, chapter "SERIAL_PRG Programming Algorithm":
 
-  // Pulse RESET after PIN_SCK is low:
-  digitalWrite(PIN_SCK, LOW);
-  delay(20);  // discharge PIN_SCK, value arbitrarily chosen
+  // Pulse RESET after ARDUINOISP_PIN_SCK is low:
+  digitalWrite(ARDUINOISP_PIN_SCK, LOW);
+  delay(20);  // discharge ARDUINOISP_PIN_SCK, value arbitrarily chosen
   reset_target(false);
   // Pulse must be minimum 2 target CPU clock cycles so 100 usec is ok for CPU
   // speeds above 20 KHz
@@ -439,8 +439,8 @@ void start_pmode() {
 void end_pmode() {
   SPI.end();
   // We're about to take the target out of reset so configure SPI pins as input
-  pinMode(PIN_MOSI, INPUT);
-  pinMode(PIN_SCK, INPUT);
+  pinMode(ARDUINOISP_PIN_MOSI, INPUT);
+  pinMode(ARDUINOISP_PIN_SCK, INPUT);
   reset_target(false);
   pinMode(RESET, INPUT);
   pmode = 0;

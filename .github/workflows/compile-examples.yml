@@ -120,14 +120,44 @@ jobs:
             starter-kit: false
             tone: true
             a5: true
+          - fqbn: arduino:esp32:nano_nora
+            usb: false
+            serial1: true
+            starter-kit: false
+            tone: true
+            a5: true
           - fqbn: arduino:megaavr:uno2018:mode=off
             usb: false
             serial1: true
             starter-kit: false
             tone: true
             a5: true
+          - fqbn: arduino:renesas_uno:minima
+            usb: true
+            serial1: true
+            starter-kit: false
+            tone: true
+            a5: true
+          - fqbn: arduino:renesas_uno:unor4wifi
+            usb: true
+            serial1: true
+            starter-kit: false
+            tone: true
+            a5: true
+          - fqbn: arduino:renesas_portenta:portenta_c33
+            usb: true
+            serial1: true
+            starter-kit: false
+            tone: true
+            a5: true
           - fqbn: arduino:samd:mkrzero
             usb: true
+            serial1: true
+            starter-kit: false
+            tone: true
+            a5: true
+          - fqbn: arduino:mbed_giga:giga
+            usb: false
             serial1: true
             starter-kit: false
             tone: true
