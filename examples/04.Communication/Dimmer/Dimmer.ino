@@ -39,7 +39,7 @@ void loop() {
     Serial.readBytesUntil('\n', num, 4);
     // calculate brightness
     for (i = 0; num[i] != '!'; i++) {
-      brightness = brightness * 10 + num[i] - 48;
+      brightness = brightness * 10 + num[i] - '0';
     }
     // set the brightness of the LED:
     analogWrite(ledPin, brightness);
