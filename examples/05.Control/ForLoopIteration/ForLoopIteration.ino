@@ -14,7 +14,7 @@
 
   This example code is in the public domain.
 
-  https://www.arduino.cc/en/Tutorial/BuiltInExamples/ForLoopIteration
+  https://docs.arduino.cc/built-in-examples/control-structures/ForLoopIteration
 */
 
 int timer = 100;  // The higher the number, the slower the timing.

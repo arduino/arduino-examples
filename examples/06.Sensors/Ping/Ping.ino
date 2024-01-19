@@ -18,7 +18,7 @@
 
   This example code is in the public domain.
 
-  https://www.arduino.cc/en/Tutorial/BuiltInExamples/Ping
+  https://docs.arduino.cc/built-in-examples/sensors/Ping
 */
 
 // this constant won't change. It's the pin number of the sensor's output:
