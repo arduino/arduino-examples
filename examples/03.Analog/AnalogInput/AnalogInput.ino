@@ -24,7 +24,7 @@
 
   This example code is in the public domain.
 
-  https://www.arduino.cc/en/Tutorial/BuiltInExamples/AnalogInput
+  https://docs.arduino.cc/built-in-examples/analog/AnalogInput/
 */
 
 int sensorPin = A0;   // select the input pin for the potentiometer

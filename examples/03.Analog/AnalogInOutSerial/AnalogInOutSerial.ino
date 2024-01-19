@@ -17,7 +17,7 @@
 
   This example code is in the public domain.
 
-  https://www.arduino.cc/en/Tutorial/BuiltInExamples/AnalogInOutSerial
+  https://docs.arduino.cc/built-in-examples/analog/AnalogInOutSerial/
 */
 
 // These constants won't change. They're used to give names to the pins used:
