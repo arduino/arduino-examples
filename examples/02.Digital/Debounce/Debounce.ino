@@ -24,7 +24,7 @@
 
   This example code is in the public domain.
 
-  https://www.arduino.cc/en/Tutorial/BuiltInExamples/Debounce
+  https://docs.arduino.cc/built-in-examples/digital/Debounce/
 */
 
 // constants won't change. They're used here to set pin numbers:

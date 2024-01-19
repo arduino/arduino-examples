@@ -14,7 +14,7 @@
 
   This example code is in the public domain.
 
-  https://www.arduino.cc/en/Tutorial/BuiltInExamples/toneKeyboard
+  https://docs.arduino.cc/built-in-examples/digital/toneKeyboard/
 */
 
 #include "pitches.h"
