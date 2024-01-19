@@ -17,7 +17,7 @@
 
   This example code is in the public domain.
 
-  https://www.arduino.cc/en/Tutorial/BuiltInExamples/BarGraph
+  https://docs.arduino.cc/built-in-examples/display/BarGraph
 */
 
 // these constants won't change:
