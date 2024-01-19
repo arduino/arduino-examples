@@ -17,7 +17,7 @@
 
   This example code is in the public domain.
 
-  https://www.arduino.cc/en/Tutorial/BuiltInExamples/Midi
+  https://docs.arduino.cc/built-in-examples/communication/Midi
 */
 
 void setup() {
