@@ -10,7 +10,7 @@
 
   This example code is in the public domain.
 
-  https://www.arduino.cc/en/Tutorial/BuiltInExamples/Fade
+  https://docs.arduino.cc/built-in-examples/basics/Fade/
 */
 
 int led = 9;         // the PWM pin the LED is attached to
