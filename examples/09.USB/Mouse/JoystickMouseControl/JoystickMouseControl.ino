@@ -26,7 +26,7 @@
 
   This example code is in the public domain.
 
-  https://www.arduino.cc/en/Tutorial/BuiltInExamples/JoystickMouseControl
+  https://docs.arduino.cc/built-in-examples/usb/JoystickMouseControl
 */
 
 #include "Mouse.h"
