@@ -21,7 +21,7 @@
 
   This example code is in the public domain.
 
-  https://www.arduino.cc/en/Tutorial/BuiltInExamples/ADXL3xx
+  https://docs.arduino.cc/built-in-examples/sensors/ADXL3xx/
 */
 
 // these constants describe the pins. They won't change:

@@ -9,7 +9,7 @@
 
   This example code is in the public domain.
 
-  https://www.arduino.cc/en/Tutorial/BuiltInExamples/StringLengthTrim
+  https://docs.arduino.cc/built-in-examples/strings/StringLengthTrim/
 */
 
 void setup() {

@@ -8,7 +8,7 @@
   the correct LED pin independent of which board is used.
   If you want to know what pin the on-board LED is connected to on your Arduino
   model, check the Technical Specs of your board at:
-  https://www.arduino.cc/en/Main/Products
+  https://docs.arduino.cc/hardware/
 
   modified 8 May 2014
   by Scott Fitzgerald
@@ -19,7 +19,7 @@
 
   This example code is in the public domain.
 
-  https://www.arduino.cc/en/Tutorial/BuiltInExamples/Blink
+  https://docs.arduino.cc/built-in-examples/basics/Blink/
 */
 
 // the setup function runs once when you press reset or power the board

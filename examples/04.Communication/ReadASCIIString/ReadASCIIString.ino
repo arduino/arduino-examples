@@ -18,7 +18,7 @@
 
   This example code is in the public domain.
 
-  https://www.arduino.cc/en/Tutorial/BuiltInExamples/ReadASCIIString
+  https://docs.arduino.cc/built-in-examples/communication/ReadASCIIString/
 */
 
 // pins for the LEDs:

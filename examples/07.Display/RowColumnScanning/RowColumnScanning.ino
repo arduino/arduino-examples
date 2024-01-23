@@ -28,7 +28,7 @@
 
   This example code is in the public domain.
 
-  https://www.arduino.cc/en/Tutorial/BuiltInExamples/RowColumnScanning
+  https://docs.arduino.cc/built-in-examples/display/RowColumnScanning/
 */
 
 // 2-dimensional array of row pin numbers:

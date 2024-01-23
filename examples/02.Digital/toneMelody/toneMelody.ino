@@ -12,7 +12,7 @@
 
   This example code is in the public domain.
 
-  https://www.arduino.cc/en/Tutorial/BuiltInExamples/toneMelody
+  https://docs.arduino.cc/built-in-examples/digital/toneMelody/
 */
 
 #include "pitches.h"

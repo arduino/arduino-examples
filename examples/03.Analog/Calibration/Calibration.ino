@@ -23,7 +23,7 @@
 
   This example code is in the public domain.
 
-  https://www.arduino.cc/en/Tutorial/BuiltInExamples/Calibration
+  https://docs.arduino.cc/built-in-examples/analog/Calibration/
 */
 
 // These constants won't change:

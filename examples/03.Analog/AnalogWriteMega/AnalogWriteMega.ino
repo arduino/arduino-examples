@@ -12,7 +12,7 @@
 
   This example code is in the public domain.
 
-  https://www.arduino.cc/en/Tutorial/BuiltInExamples/AnalogWriteMega
+  https://docs.arduino.cc/built-in-examples/analog/AnalogWriteMega/
 */
 
 // These constants won't change. They're used to give names to the pins used:

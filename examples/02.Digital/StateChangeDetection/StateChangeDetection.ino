@@ -21,7 +21,7 @@
 
   This example code is in the public domain.
 
-  https://www.arduino.cc/en/Tutorial/BuiltInExamples/StateChangeDetection
+  https://docs.arduino.cc/built-in-examples/digital/StateChangeDetection/
 */
 
 // this constant won't change:

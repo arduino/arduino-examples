@@ -18,7 +18,7 @@
 
   This example code is in the public domain.
 
-  https://www.arduino.cc/en/Tutorial/BuiltInExamples/Memsic2125
+  https://docs.arduino.cc/built-in-examples/sensors/Memsic2125/
 */
 
 // these constants won't change:

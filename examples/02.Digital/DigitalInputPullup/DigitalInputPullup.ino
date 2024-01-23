@@ -17,7 +17,7 @@
 
   This example code is in the public domain.
 
-  https://www.arduino.cc/en/Tutorial/BuiltInExamples/InputPullupSerial
+  https://docs.arduino.cc/built-in-examples/digital/InputPullupSerial/
 */
 
 void setup() {
