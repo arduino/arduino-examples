@@ -22,7 +22,7 @@
 
   This example code is in the public domain.
 
-  https://docs.arduino.cc/built-in-examples/communication/Graph
+  https://docs.arduino.cc/built-in-examples/communication/Graph/
 */
 
 void setup() {

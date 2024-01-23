@@ -22,7 +22,7 @@
 
   This example is in the public domain.
 
-  https://docs.arduino.cc/built-in-examples/usb/KeyboardReprogram
+  https://docs.arduino.cc/built-in-examples/usb/KeyboardReprogram/
 */
 
 #include "Keyboard.h"

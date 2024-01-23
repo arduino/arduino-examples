@@ -9,7 +9,7 @@
 
   This example code is in the public domain.
 
-  https://docs.arduino.cc/built-in-examples/strings/StringComparisonOperators
+  https://docs.arduino.cc/built-in-examples/strings/StringComparisonOperators/
 */
 
 String stringOne, stringTwo;

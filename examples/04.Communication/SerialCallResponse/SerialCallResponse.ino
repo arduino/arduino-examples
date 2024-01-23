@@ -18,7 +18,7 @@
 
   This example code is in the public domain.
 
-  https://docs.arduino.cc/built-in-examples/communication/SerialCallResponse
+  https://docs.arduino.cc/built-in-examples/communication/SerialCallResponse/
 */
 
 int firstSensor = 0;   // first analog sensor

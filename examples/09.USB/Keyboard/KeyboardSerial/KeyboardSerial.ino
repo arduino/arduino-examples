@@ -16,7 +16,7 @@
 
   This example code is in the public domain.
 
-  https://docs.arduino.cc/built-in-examples/usb/KeyboardSerial
+  https://docs.arduino.cc/built-in-examples/usb/KeyboardSerial/
 */
 
 #include "Keyboard.h"

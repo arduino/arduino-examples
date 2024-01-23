@@ -18,7 +18,7 @@
 
   This example code is in the public domain.
 
-  https://docs.arduino.cc/built-in-examples/control-structures/SwitchCase
+  https://docs.arduino.cc/built-in-examples/control-structures/SwitchCase/
 */
 
 // these constants won't change. They are the lowest and highest readings you

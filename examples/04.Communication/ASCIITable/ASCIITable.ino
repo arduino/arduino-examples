@@ -16,7 +16,7 @@
 
   This example code is in the public domain.
 
-  https://docs.arduino.cc/built-in-examples/communication/ASCIITable
+  https://docs.arduino.cc/built-in-examples/communication/ASCIITable/
 */
 
 void setup() {

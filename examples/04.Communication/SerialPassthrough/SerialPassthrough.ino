@@ -21,7 +21,7 @@
   created 23 May 2016
   by Erik Nyquist
 
-  https://docs.arduino.cc/built-in-examples/communication/SerialPassthrough
+  https://docs.arduino.cc/built-in-examples/communication/SerialPassthrough/
 */
 
 void setup() {

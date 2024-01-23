@@ -13,7 +13,7 @@
 
   This example code is in the public domain.
 
-  https://docs.arduino.cc/built-in-examples/communication/VirtualColorMixer
+  https://docs.arduino.cc/built-in-examples/communication/VirtualColorMixer/
 */
 
 const int redPin = A0;    // sensor to control red color
