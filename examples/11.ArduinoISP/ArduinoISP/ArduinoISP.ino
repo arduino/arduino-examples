@@ -3,6 +3,9 @@
 // If you require a license, see
 // https://opensource.org/licenses/bsd-license.php
 //
+// Please note that this sketch still uses MISO/MOSI instead of CIPO/COPI.
+// For further details, see https://docs.arduino.cc/learn/communication/spi
+//
 // This sketch turns the Arduino into a AVRISP using the following Arduino pins:
 //
 // Pin 10 is used to reset the target microcontroller.
