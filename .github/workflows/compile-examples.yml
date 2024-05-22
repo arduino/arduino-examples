@@ -189,6 +189,12 @@ jobs:
             # Change the value to true once it is fixed.
             tone: false
             a5: true
+          - fqbn: arduino:mbed_portenta:portenta_x8
+            usb: false
+            serial1: true
+            starter-kit: false
+            tone: true
+            a5: true
 
         # Make board type-specific customizations to the matrix jobs
         include:
