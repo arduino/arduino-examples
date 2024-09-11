@@ -49,6 +49,6 @@ void loop() {
     digitalWrite(ledPin, ledState);
     // send the string "Knock!" back to the computer, followed by newline
     Serial.println("Knock!");
+    delay(100);  // delay to avoid overloading the serial port buffer
   }
-  delay(100);  // delay to avoid overloading the serial port buffer
 }
