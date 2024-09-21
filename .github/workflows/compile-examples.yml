@@ -175,6 +175,12 @@ jobs:
             tone: true
             # WiFiNINA library is required to use pins A4-A7.
             a5: false
+          - fqbn: arduino:mbed_nicla:nicla_sense
+            usb: false
+            serial1: true
+            starter-kit: false
+            tone: true
+            a5: true
           - fqbn: arduino:mbed_portenta:envie_m7
             usb: false
             serial1: true
