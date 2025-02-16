@@ -10,6 +10,9 @@
   - six LEDs
   - tilt switch
 
+  NOTE: This sketch is intentionally incomplete. Make sure to add your own code
+  for whatever you want to happen at the end of the hour.
+
   created 13 Sep 2012
   by Scott Fitzgerald
 
@@ -55,6 +58,7 @@ void loop() {
 
     if (led == 7) {
       // the hour is up
+      // add your indicator code here
     }
   }
 
