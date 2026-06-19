@@ -161,6 +161,9 @@
 #define CRC_EOP 0x20  //ok it is a space...
 
 void pulse(int pin, int times);
+void avrisp();
+uint8_t write_flash_pages(int length);
+uint8_t write_eeprom_chunk(unsigned int start, unsigned int length);
 
 #ifdef USE_HARDWARE_SPI
 #include "SPI.h"
