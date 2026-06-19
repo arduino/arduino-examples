@@ -19,6 +19,8 @@
 
 #include "pitches.h"
 
+int buzzerPin = 8;
+
 const int threshold = 10;  // minimum reading of the sensors that generates a note
 
 // notes to play, corresponding to the 3 sensors:
@@ -37,7 +39,7 @@ void loop() {
     // if the sensor is pressed hard enough:
     if (sensorReading > threshold) {
       // play the note corresponding to this sensor:
-      tone(8, notes[thisSensor], 20);
+      tone(buzzerPin, notes[thisSensor], 20);
     }
   }
 }
