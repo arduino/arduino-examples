@@ -13,4 +13,5 @@ updates:
     schedule:
       interval: daily
     labels:
+      - "topic: dependencies"
       - "topic: infrastructure"
